@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="bg">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Гласник — Начало</title>
+  <meta name="description" content="Гласник — дигитална платформа за банатските и бесарабските българи.">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body data-page="home">
+
+  <!-- Header-ът се вмъква от js/common.js -->
+  <div id="site-header"></div>
+
+  <main>
+    <!-- HERO -->
+    <section class="hero">
+      <div class="container hero-inner">
+        <div>
+          <h1>Памет, език и общности отвъд граници</h1>
+          <p class="hero-lead">
+            Гласник събира и представя информация за историята, езика и културата на банатските
+            и бесарабските българи чрез текстове, архивни материали, езикови данни и интерактивна карта.
+          </p>
+
+          <!-- Формата изпраща към texts.html?q=… без нужда от JavaScript -->
+          <form class="search-form search-large" action="texts.html" method="get" role="search">
+            <label class="visually-hidden" for="home-search">Търсене в платформата</label>
+            <input class="input" type="search" id="home-search" name="q"
+                   placeholder="Търсене в текстове, общности, речник и архив…" required>
+            <button class="btn btn-primary" type="submit">Търси</button>
+          </form>
+
+          <ul class="tag-list" aria-label="Популярни теми">
+            <li><a class="tag" href="texts.html?q=банатски%20българи">банатски българи</a></li>
+            <li><a class="tag" href="texts.html?q=Бесарабия">Бесарабия</a></li>
+            <li><a class="tag" href="texts.html?q=говор">говор</a></li>
+            <li><a class="tag" href="texts.html?q=преселение">преселение</a></li>
+            <li><a class="tag" href="texts.html?q=традиции">традиции</a></li>
+          </ul>
+        </div>
+
+        <div class="preview-map-wrap">
+          <div id="preview-map" class="preview-map" role="region" aria-label="Карта на общностите — преглед"></div>
+          <a class="btn btn-primary btn-small preview-map-link" href="map.html">Отвори картата</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ОСНОВНИ РАЗДЕЛИ -->
+    <section class="section">
+      <div class="container">
+        <h2 class="section-title">Разгледайте платформата</h2>
+        <div class="grid grid-4">
+          <a class="card feature-card" href="communities.html">
+            <span class="feature-icon" id="icon-history"></span>
+            <h3>Исторически контекст</h3>
+            <p>Преселения, селища, ключови събития и личности.</p>
+            <span class="more">Към общностите →</span>
+          </a>
+          <a class="card feature-card" href="map.html">
+            <span class="feature-icon" id="icon-people"></span>
+            <h3>Съвременен контекст</h3>
+            <p>Общности днес, културен живот и идентичност.</p>
+            <span class="more">Към картата →</span>
+          </a>
+          <a class="card feature-card" href="dictionary.html">
+            <span class="feature-icon" id="icon-language"></span>
+            <h3>Езикови данни</h3>
+            <p>Говори, речник, текстови корпуси и езикови особености.</p>
+            <span class="more">Към речника →</span>
+          </a>
+          <a class="card feature-card" href="archive.html">
+            <span class="feature-icon" id="icon-archive"></span>
+            <h3>Източници</h3>
+            <p>Архивни материали, документи, снимки и библиография.</p>
+            <span class="more">Към архива →</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ИЗБРАНИ МАТЕРИАЛИ -->
+    <section class="section" style="padding-top: 0;">
+      <div class="container">
+        <h2 class="section-title">Избрани материали</h2>
+        <div class="grid grid-4">
+
+          <article class="card material-card">
+            <div class="image-placeholder" role="img" aria-label="Изображение-заместител: писмо">
+              <span class="placeholder-label" id="ph-letter"><span>Писмо</span></span>
+            </div>
+            <span class="badge">Архив · 1898</span>
+            <h3 style="margin-top: 10px;">Писмо от Бесарабия</h3>
+            <p class="muted small">Семейно писмо от Болград със спомени за преселението отвъд Дунава.</p>
+            <a class="btn btn-outline btn-small" href="archive.html?id=1">Отвори</a>
+          </article>
+
+          <article class="card material-card">
+            <div class="image-placeholder" role="img" aria-label="Изображение-заместител: устен разказ">
+              <span class="placeholder-label" id="ph-oral"><span>Устен разказ</span></span>
+            </div>
+            <span class="badge">Текст · 1975</span>
+            <h3 style="margin-top: 10px;">Разказ за основаването на Винга</h3>
+            <p class="muted small">Спомени на жители на Винга за първите години на селото.</p>
+            <a class="btn btn-outline btn-small" href="texts.html?q=Винга">Отвори</a>
+          </article>
+
+          <article class="card material-card">
+            <div class="image-placeholder" role="img" aria-label="Изображение-заместител: карта">
+              <span class="placeholder-label" id="ph-map"><span>Карта</span></span>
+            </div>
+            <span class="badge">Архив · 1782</span>
+            <h3 style="margin-top: 10px;">Карта на Банат с български селища</h3>
+            <p class="muted small">Копие на карта от края на XVIII в. с отбелязани български селища.</p>
+            <a class="btn btn-outline btn-small" href="archive.html?id=9">Отвори</a>
+          </article>
+
+          <article class="card material-card">
+            <div class="image-placeholder" role="img" aria-label="Изображение-заместител: речник">
+              <span class="placeholder-label" id="ph-dict"><span>Речник</span></span>
+            </div>
+            <span class="badge">Речник · Бесарабия</span>
+            <h3 style="margin-top: 10px;">шиник</h3>
+            <p class="muted small">Стара мярка за зърно, позната в българските села в Бесарабия.</p>
+            <a class="btn btn-outline btn-small" href="dictionary.html?word=шиник">Отвори</a>
+          </article>
+
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer-ът се вмъква от js/common.js -->
+  <div id="site-footer"></div>
+
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script src="js/data.js"></script>
+  <script src="js/common.js"></script>
+  <script src="js/home.js"></script>
+</body>
+</html>

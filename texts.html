@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="bg">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Гласник — Текстове и корпус</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body data-page="texts">
+
+  <div id="site-header"></div>
+
+  <main>
+    <section class="page-header">
+      <div class="container">
+        <h1>Текстове и корпус</h1>
+        <p>Търсете и разглеждайте документи, писма, устни разкази, периодичен печат и диалектни текстове.</p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+
+        <!-- Табове -->
+        <div class="tabs" role="group" aria-label="Вид текстове">
+          <button type="button" class="tab active" data-category="all" aria-pressed="true">Всички</button>
+          <button type="button" class="tab" data-category="documents" aria-pressed="false">Документи</button>
+          <button type="button" class="tab" data-category="oral" aria-pressed="false">Устни разкази</button>
+          <button type="button" class="tab" data-category="corpus" aria-pressed="false">Корпус</button>
+          <button type="button" class="tab" data-category="notes" aria-pressed="false">Бележки</button>
+        </div>
+
+        <!-- Търсене и филтри -->
+        <div class="toolbar">
+          <div class="toolbar-search">
+            <label class="field-label" for="text-search">Търсене</label>
+            <input class="input" type="search" id="text-search" placeholder="Заглавие, ключова дума, място…">
+          </div>
+          <div>
+            <label class="field-label" for="filter-region">Регион</label>
+            <select class="select" id="filter-region"><option value="">Всички</option></select>
+          </div>
+          <div>
+            <label class="field-label" for="filter-genre">Жанр</label>
+            <select class="select" id="filter-genre"><option value="">Всички</option></select>
+          </div>
+          <div>
+            <label class="field-label" for="filter-period">Период</label>
+            <select class="select" id="filter-period">
+              <option value="">Всички</option>
+              <option value="XVIII">XVIII в.</option>
+              <option value="XIX">XIX в.</option>
+              <option value="XX">XX в.</option>
+            </select>
+          </div>
+          <div>
+            <label class="field-label" for="filter-variety">Езикова разновидност</label>
+            <select class="select" id="filter-variety"><option value="">Всички</option></select>
+          </div>
+        </div>
+
+        <div class="results-info">
+          <span id="text-count" aria-live="polite"></span>
+          <button type="button" class="btn btn-outline btn-small" id="reset-texts">Изчисти търсенето</button>
+        </div>
+
+        <!-- Резултати в другите раздели (общности, архив, речник) -->
+        <p class="note" id="other-results" hidden></p>
+
+        <div class="result-list" id="text-results"></div>
+      </div>
+    </section>
+  </main>
+
+  <div id="site-footer"></div>
+
+  <script src="js/data.js"></script>
+  <script src="js/common.js"></script>
+  <script src="js/texts.js"></script>
+</body>
+</html>

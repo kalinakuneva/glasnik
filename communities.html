@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="bg">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Гласник — Общности</title>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body data-page="communities">
+
+  <div id="site-header"></div>
+
+  <main>
+    <!-- СПИСЪК С ОБЩНОСТИ (показва се, когато няма ?id= в адреса) -->
+    <div id="list-view">
+      <section class="page-header">
+        <div class="container">
+          <h1>Общности</h1>
+          <p>Населени места на банатските и бесарабските българи в днешните Румъния, Сърбия, Молдова и Украйна. Описанията са обобщени и служат за демонстрация.</p>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="container">
+          <div class="toolbar toolbar-3">
+            <div class="toolbar-search">
+              <label class="field-label" for="community-search">Търсене</label>
+              <input class="input" type="search" id="community-search" placeholder="Име на село или град…">
+            </div>
+            <div>
+              <label class="field-label" for="community-region">Регион</label>
+              <select class="select" id="community-region">
+                <option value="">Всички региони</option>
+              </select>
+            </div>
+            <div>
+              <label class="field-label" for="community-country">Държава</label>
+              <select class="select" id="community-country">
+                <option value="">Всички държави</option>
+              </select>
+            </div>
+          </div>
+
+          <p class="results-info" id="community-count" aria-live="polite"></p>
+          <div class="grid grid-3" id="community-grid"></div>
+        </div>
+      </section>
+    </div>
+
+    <!-- ДЕТАЙЛЕН ИЗГЛЕД (попълва се от js/communities.js при ?id=) -->
+    <div id="detail-view" hidden></div>
+  </main>
+
+  <div id="site-footer"></div>
+
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script src="js/data.js"></script>
+  <script src="js/common.js"></script>
+  <script src="js/communities.js"></script>
+</body>
+</html>

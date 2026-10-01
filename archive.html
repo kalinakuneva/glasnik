@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="bg">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Гласник — Архив и източници</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body data-page="archive">
+
+  <div id="site-header"></div>
+
+  <main>
+    <section class="page-header">
+      <div class="container">
+        <h1>Архив и източници</h1>
+        <p>Дигитален архив с документи, снимки, ръкописи, картографски материали и библиографски източници.</p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container sidebar-layout">
+
+        <!-- ФИЛТРИ -->
+        <aside class="filters-panel card" aria-label="Филтри за архива">
+          <label class="field-label" for="archive-search">Търсене</label>
+          <input class="input" type="search" id="archive-search" placeholder="Заглавие, място, ключова дума…" style="margin-bottom: 16px;">
+
+          <fieldset class="filter-group">
+            <legend>Тип документ</legend>
+            <label class="check"><input type="checkbox" name="archive-type" value="Ръкопис"> Ръкописи</label>
+            <label class="check"><input type="checkbox" name="archive-type" value="Писмо"> Писма</label>
+            <label class="check"><input type="checkbox" name="archive-type" value="Книга"> Книги</label>
+            <label class="check"><input type="checkbox" name="archive-type" value="Снимка"> Снимки</label>
+            <label class="check"><input type="checkbox" name="archive-type" value="Карта"> Карти</label>
+            <label class="check"><input type="checkbox" name="archive-type" value="Църковен документ"> Църковни документи</label>
+          </fieldset>
+
+          <fieldset class="filter-group">
+            <legend>Период</legend>
+            <label class="check"><input type="checkbox" name="archive-period" value="XVIII"> XVIII в.</label>
+            <label class="check"><input type="checkbox" name="archive-period" value="XIX"> XIX в.</label>
+            <label class="check"><input type="checkbox" name="archive-period" value="XX"> XX в.</label>
+          </fieldset>
+
+          <fieldset class="filter-group">
+            <legend>Регион</legend>
+            <label class="check"><input type="checkbox" name="archive-region" value="Банат"> Банат</label>
+            <label class="check"><input type="checkbox" name="archive-region" value="Бесарабия"> Бесарабия</label>
+          </fieldset>
+
+          <button type="button" class="btn btn-outline btn-block" id="reset-archive" style="margin-top: 8px;">Изчисти филтрите</button>
+        </aside>
+
+        <!-- РЕЗУЛТАТИ -->
+        <div>
+          <p class="results-info" id="archive-count" aria-live="polite"></p>
+          <div class="grid grid-3" id="archive-grid"></div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- МОДАЛЕН ПРОЗОРЕЦ ЗА ДЕТАЙЛИ -->
+  <dialog class="modal" id="archive-modal" aria-labelledby="modal-title">
+    <div class="modal-header">
+      <div>
+        <span class="badge" id="modal-type"></span>
+        <h2 id="modal-title"></h2>
+      </div>
+      <button type="button" class="icon-btn" id="modal-close" aria-label="Затвори">✕</button>
+    </div>
+    <div class="modal-body">
+      <dl class="info-list" id="modal-info"></dl>
+      <p class="field-label" style="margin-top: 16px;">Кратко описание</p>
+      <p id="modal-description"></p>
+      <p class="field-label">Ключови думи</p>
+      <ul class="tag-list" id="modal-keywords" aria-label="Ключови думи"></ul>
+
+      <div class="modal-actions">
+        <button type="button" class="btn btn-primary" id="btn-preview">Преглед</button>
+        <button type="button" class="btn btn-outline" id="btn-transcription" aria-expanded="false" aria-controls="modal-transcription">Транскрипция</button>
+        <button type="button" class="btn btn-outline" id="btn-pdf">Изтегли PDF</button>
+      </div>
+
+      <div class="transcription" id="modal-transcription" hidden></div>
+    </div>
+  </dialog>
+
+  <div id="site-footer"></div>
+
+  <script src="js/data.js"></script>
+  <script src="js/common.js"></script>
+  <script src="js/archive.js"></script>
+</body>
+</html>

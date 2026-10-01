@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="bg">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Гласник — Интерактивна карта</title>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body data-page="map">
+
+  <div id="site-header"></div>
+
+  <main class="map-layout">
+    <!-- SIDEBAR -->
+    <aside class="map-sidebar" aria-label="Търсене и филтри за картата">
+      <h1>Интерактивна карта на общностите</h1>
+      <p>Разгледайте българските общности, населени места, текстове, архивни материали и речникови данни върху историческата карта.</p>
+
+      <label class="field-label" for="map-search">Търсене на място или материал</label>
+      <input class="input" type="search" id="map-search" placeholder="напр. Болград" autocomplete="off">
+      <ul class="search-results" id="map-search-results" aria-live="polite"></ul>
+
+      <fieldset class="filter-group" style="margin-top: 16px;">
+        <legend>Регион</legend>
+        <label class="check"><input type="checkbox" name="region" value="Банат" checked> Банат</label>
+        <label class="check"><input type="checkbox" name="region" value="Бесарабия" checked> Бесарабия</label>
+      </fieldset>
+
+      <fieldset class="filter-group">
+        <legend>Тип материал</legend>
+        <label class="check"><input type="checkbox" name="kind" value="community" checked> <span class="legend-dot dot-community"></span> Общности</label>
+        <label class="check"><input type="checkbox" name="kind" value="text" checked> <span class="legend-dot dot-text"></span> Текстове</label>
+        <label class="check"><input type="checkbox" name="kind" value="archive" checked> <span class="legend-dot dot-archive"></span> Архив</label>
+        <label class="check"><input type="checkbox" name="kind" value="dictionary" checked> <span class="legend-dot dot-dictionary"></span> Речник</label>
+      </fieldset>
+
+      <fieldset class="filter-group">
+        <legend>Период</legend>
+        <label class="check"><input type="checkbox" name="period" value="XVIII" checked> XVIII в.</label>
+        <label class="check"><input type="checkbox" name="period" value="XIX" checked> XIX в.</label>
+        <label class="check"><input type="checkbox" name="period" value="XX" checked> XX в.</label>
+      </fieldset>
+
+      <div class="filter-actions">
+        <button type="button" class="btn btn-primary btn-block" id="apply-filters">Приложи филтри</button>
+        <button type="button" class="btn btn-outline btn-block" id="clear-filters">Изчисти филтрите</button>
+      </div>
+
+      <p class="map-count" id="map-count" aria-live="polite"></p>
+    </aside>
+
+    <!-- КАРТА -->
+    <section class="map-main" aria-label="Карта">
+      <div id="map"></div>
+    </section>
+  </main>
+
+  <div id="site-footer"></div>
+
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script src="js/data.js"></script>
+  <script src="js/common.js"></script>
+  <script src="js/map.js"></script>
+</body>
+</html>
