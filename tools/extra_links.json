@@ -16,6 +16,11 @@
   ],
   "VFYTI4R5": [
     {
+      "label": "Пълен текст — Милетич, „Изследвания за българите в Седмиградско и Банат“ (1987), сканове",
+      "url": "http://promacedonia.org/lm_bs/gal/index.html",
+      "full": true
+    },
+    {
       "label": "СбНУ, кн. XIV — Дигитална библиотека на БАН",
       "url": "https://digilib.nalis.bg/xmlui/handle/nls/25126",
       "full": true
@@ -23,12 +28,22 @@
   ],
   "SGAYD5F3": [
     {
+      "label": "Пълен текст — Милетич, „Изследвания за българите в Седмиградско и Банат“ (1987), сканове",
+      "url": "http://promacedonia.org/lm_bs/gal/index.html",
+      "full": true
+    },
+    {
       "label": "СбНУ, кн. XVI–XVII — Дигитална библиотека на БАН",
       "url": "https://digilib.nalis.bg/xmlui/handle/nls/25126",
       "full": true
     }
   ],
   "46QHE9MJ": [
+    {
+      "label": "Пълен текст — „Нашите павликяни“ (Струмски онлайн библиотека)",
+      "url": "https://www.strumski.com/biblioteka/?id=300",
+      "full": true
+    },
     {
       "label": "СбНУ, кн. XIX — Дигитална библиотека на БАН",
       "url": "https://digilib.nalis.bg/xmlui/handle/nls/25126",
@@ -135,6 +150,20 @@
       "url": "https://balgarskiezik.eu/3-2023.html",
       "full": true,
       "replacesDoi": true
+    }
+  ],
+  "8C7ZWREL": [
+    {
+      "label": "Пълен текст — Милетич, „Изследвания за българите в Седмиградско и Банат“ (1987), сканове",
+      "url": "http://promacedonia.org/lm_bs/gal/index.html",
+      "full": true
+    }
+  ],
+  "CVM3J8NP": [
+    {
+      "label": "Пълен текст — Милетич, „Изследвания за българите в Седмиградско и Банат“ (1987), сканове",
+      "url": "http://promacedonia.org/lm_bs/gal/index.html",
+      "full": true
     }
   ]
 }

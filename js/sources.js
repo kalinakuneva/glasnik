@@ -184,7 +184,13 @@ const sources = [
     "doi": "",
     "url": "",
     "abstract": "",
-    "links": [],
+    "links": [
+      {
+        "label": "Пълен текст — Милетич, „Изследвания за българите в Седмиградско и Банат“ (1987), сканове",
+        "url": "http://promacedonia.org/lm_bs/gal/index.html",
+        "full": true
+      }
+    ],
     "tags": [],
     "topic": "Банат",
     "places": [],
@@ -212,6 +218,11 @@ const sources = [
     "url": "",
     "abstract": "",
     "links": [
+      {
+        "label": "Пълен текст — Милетич, „Изследвания за българите в Седмиградско и Банат“ (1987), сканове",
+        "url": "http://promacedonia.org/lm_bs/gal/index.html",
+        "full": true
+      },
       {
         "label": "СбНУ, кн. XIV — Дигитална библиотека на БАН",
         "url": "https://digilib.nalis.bg/xmlui/handle/nls/25126",
@@ -246,6 +257,11 @@ const sources = [
     "abstract": "",
     "links": [
       {
+        "label": "Пълен текст — Милетич, „Изследвания за българите в Седмиградско и Банат“ (1987), сканове",
+        "url": "http://promacedonia.org/lm_bs/gal/index.html",
+        "full": true
+      },
+      {
         "label": "СбНУ, кн. XVI–XVII — Дигитална библиотека на БАН",
         "url": "https://digilib.nalis.bg/xmlui/handle/nls/25126",
         "full": true
@@ -278,6 +294,11 @@ const sources = [
     "url": "",
     "abstract": "",
     "links": [
+      {
+        "label": "Пълен текст — „Нашите павликяни“ (Струмски онлайн библиотека)",
+        "url": "https://www.strumski.com/biblioteka/?id=300",
+        "full": true
+      },
       {
         "label": "СбНУ, кн. XIX — Дигитална библиотека на БАН",
         "url": "https://digilib.nalis.bg/xmlui/handle/nls/25126",
@@ -563,7 +584,13 @@ const sources = [
     "doi": "",
     "url": "",
     "abstract": "",
-    "links": [],
+    "links": [
+      {
+        "label": "Пълен текст — Милетич, „Изследвания за българите в Седмиградско и Банат“ (1987), сканове",
+        "url": "http://promacedonia.org/lm_bs/gal/index.html",
+        "full": true
+      }
+    ],
     "tags": [],
     "topic": "Банат",
     "places": [],
