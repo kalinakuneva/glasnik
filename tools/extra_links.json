@@ -1,0 +1,26 @@
+{
+  "_readme": "Допълнителни линкове към записите от Zotero. Ключът е Zotero Key. full: true = пълен текст, свободен достъп; false = страница с информация (издател, каталог).",
+  "ZPMRUWVG": [{"label": "Google Books (сканирано издание)", "url": "https://books.google.com/books?id=880HAAAAQAAJ", "full": true}],
+  "A9I9PSRK": [{"label": "Google Books (сканирано издание)", "url": "https://books.google.com/books?id=880HAAAAQAAJ", "full": true}],
+  "VFYTI4R5": [{"label": "СбНУ, кн. XIV — Дигитална библиотека на БАН", "url": "https://digilib.nalis.bg/xmlui/handle/nls/25126", "full": true}],
+  "SGAYD5F3": [{"label": "СбНУ, кн. XVI–XVII — Дигитална библиотека на БАН", "url": "https://digilib.nalis.bg/xmlui/handle/nls/25126", "full": true}],
+  "46QHE9MJ": [{"label": "СбНУ, кн. XIX — Дигитална библиотека на БАН", "url": "https://digilib.nalis.bg/xmlui/handle/nls/25126", "full": true}],
+  "RQ5ZSG8I": [{"label": "PDF — Известия на ИБЕ, кн. XXIX", "url": "https://ibl.bas.bg/izvestiya/wp-content/uploads/2018/08/IZVESTIA-IBE-XXIX-7-46-Tsibranska-KostovaAbadzieva.pdf", "full": true}],
+  "BPSL3NAS": [{"label": "PDF — дисертацията (ИБЕ–БАН)", "url": "https://ibl.bas.bg/wp-content/uploads/2016/07/%D0%94%D0%B8%D1%81%D0%B5%D1%80%D1%82%D0%B0%D1%86%D0%B8%D1%8F-%D0%9C.%D0%90%D0%B1%D0%B0%D0%B4%D0%B6%D0%B8%D0%B5%D0%B2%D0%B0.pdf", "full": true}],
+  "HU4GEAJR": [{"label": "PDF — сборникът на конференцията на ИБЕ, 2019 (с. 147)", "url": "https://ibl.bas.bg/wp-content/uploads/2019/05/Sbornik-s-Dokladi_kor.-I-restr.pdf", "full": true}],
+  "GAUG4FFI": [{"label": "PDF — сборникът на конференцията на ИБЕ, 2020 (с. 250)", "url": "https://ibl.bas.bg/wp-content/uploads/2020/07/PROCEEDINGS_IBLCONF2020_vol1a.pdf", "full": true}],
+  "LB2I8D5E": [{"label": "PDF — сборникът на конференцията на ИБЕ, 2022 (с. 338)", "url": "https://ibl.bas.bg/wp-content/uploads/2022/06/Proceedings_IBL_2022.pdf", "full": true}],
+  "2HB33244": [
+    {"label": "PDF — сборникът на конференцията на ИБЕ, 2023 (с. 228)", "url": "https://ibl.bas.bg/wp-content/uploads/2023/06/ZA-pechat_DOKLADI_IBE_2023.pdf", "full": true},
+    {"label": "CEEOL", "url": "https://www.ceeol.com/search/chapter-detail?id=1199276", "full": false}
+  ],
+  "P9HAJQYN": [{"label": "Електронна библиотека на ИБЕ", "url": "https://ibl.bas.bg/lib/index.php?bookId=RBE_t5&action=show", "full": true}],
+  "8ZULX6D2": [
+    {"label": "Academia.edu (качено от авторката)", "url": "https://www.academia.edu/122228779", "full": true},
+    {"label": "Издателство на БАН", "url": "https://press.bas.bg/bg/eBooks-105/show-106(80)", "full": false}
+  ],
+  "4RGY2SIL": [{"label": "ResearchGate", "url": "https://www.researchgate.net/publication/358191933", "full": true}],
+  "KAQCLZAB": [{"label": "Страница на издателя (ЮЗУ)", "url": "http://press.swu.bg/bg/categorylistbg/20-filcatbg/488-mladenova-banat", "full": false}],
+  "2BTY9XMN": [{"label": "Ръкописът от 1849 г. в НБКМ", "url": "https://www.nationallibrary.bg/www/2022/04/05/zaropismo-illi-balgarska-istoria-1849-%D0%B3/", "full": false}],
+  "FW42AS24": [{"label": "Oxford University Press", "url": "https://academic.oup.com/book/33738", "full": false}]
+}

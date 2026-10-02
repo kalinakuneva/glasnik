@@ -8,6 +8,8 @@
    topic  — „Банат“, „Бесарабия“ или „Българи католици“
    kind   — „Извор“ (издания до 1870 г.) или „Изследване“
    places — общности от data.js, с които записът е свързан
+   links  — допълнителни линкове от tools/extra_links.json
+            (full: true = пълен текст в свободен достъп)
    ========================================================= */
 
 const sources = [
@@ -32,6 +34,13 @@ const sources = [
     "doi": "",
     "url": "",
     "abstract": "",
+    "links": [
+      {
+        "label": "Google Books (сканирано издание)",
+        "url": "https://books.google.com/books?id=880HAAAAQAAJ",
+        "full": true
+      }
+    ],
     "tags": [],
     "topic": "Българи католици",
     "places": [],
@@ -59,6 +68,13 @@ const sources = [
     "doi": "",
     "url": "",
     "abstract": "",
+    "links": [
+      {
+        "label": "Google Books (сканирано издание)",
+        "url": "https://books.google.com/books?id=880HAAAAQAAJ",
+        "full": true
+      }
+    ],
     "tags": [],
     "topic": "Българи католици",
     "places": [],
@@ -85,6 +101,7 @@ const sources = [
     "doi": "",
     "url": "",
     "abstract": "",
+    "links": [],
     "tags": [],
     "topic": "Банат",
     "places": [
@@ -113,6 +130,7 @@ const sources = [
     "doi": "",
     "url": "http://dspace.cl.bas.bg/xmlui/handle/nls/807",
     "abstract": "",
+    "links": [],
     "tags": [],
     "topic": "Българи католици",
     "places": [],
@@ -139,6 +157,7 @@ const sources = [
     "doi": "",
     "url": "https://commons.wikimedia.org/wiki/File:B%C3%A2lg%C3%A0rskutu_pr%C3%A1vup%C3%ADsanji_(The_Bulgarian_Orthography).pdf",
     "abstract": "",
+    "links": [],
     "tags": [],
     "topic": "Банат",
     "places": [],
@@ -165,6 +184,7 @@ const sources = [
     "doi": "",
     "url": "",
     "abstract": "",
+    "links": [],
     "tags": [],
     "topic": "Банат",
     "places": [],
@@ -191,6 +211,13 @@ const sources = [
     "doi": "",
     "url": "",
     "abstract": "",
+    "links": [
+      {
+        "label": "СбНУ, кн. XIV — Дигитална библиотека на БАН",
+        "url": "https://digilib.nalis.bg/xmlui/handle/nls/25126",
+        "full": true
+      }
+    ],
     "tags": [],
     "topic": "Банат",
     "places": [],
@@ -217,6 +244,13 @@ const sources = [
     "doi": "",
     "url": "",
     "abstract": "",
+    "links": [
+      {
+        "label": "СбНУ, кн. XVI–XVII — Дигитална библиотека на БАН",
+        "url": "https://digilib.nalis.bg/xmlui/handle/nls/25126",
+        "full": true
+      }
+    ],
     "tags": [],
     "topic": "Банат",
     "places": [],
@@ -243,6 +277,13 @@ const sources = [
     "doi": "",
     "url": "",
     "abstract": "",
+    "links": [
+      {
+        "label": "СбНУ, кн. XIX — Дигитална библиотека на БАН",
+        "url": "https://digilib.nalis.bg/xmlui/handle/nls/25126",
+        "full": true
+      }
+    ],
     "tags": [],
     "topic": "Българи католици",
     "places": [],
@@ -269,6 +310,7 @@ const sources = [
     "doi": "",
     "url": "",
     "abstract": "",
+    "links": [],
     "tags": [],
     "topic": "Българи католици",
     "places": [],
@@ -295,6 +337,7 @@ const sources = [
     "doi": "",
     "url": "https://digital.libsu.uni-sofia.bg/bg/v/59508",
     "abstract": "",
+    "links": [],
     "tags": [],
     "topic": "Българи католици",
     "places": [],
@@ -321,6 +364,7 @@ const sources = [
     "doi": "",
     "url": "",
     "abstract": "",
+    "links": [],
     "tags": [],
     "topic": "Българи католици",
     "places": [],
@@ -347,6 +391,7 @@ const sources = [
     "doi": "",
     "url": "",
     "abstract": "",
+    "links": [],
     "tags": [],
     "topic": "Банат",
     "places": [],
@@ -373,6 +418,7 @@ const sources = [
     "doi": "",
     "url": "",
     "abstract": "",
+    "links": [],
     "tags": [],
     "topic": "Българи католици",
     "places": [],
@@ -402,6 +448,7 @@ const sources = [
     "doi": "",
     "url": "",
     "abstract": "",
+    "links": [],
     "tags": [],
     "topic": "Българи католици",
     "places": [],
@@ -428,6 +475,7 @@ const sources = [
     "doi": "",
     "url": "",
     "abstract": "",
+    "links": [],
     "tags": [
       "17–18 век",
       "книжнина – католическа"
@@ -457,6 +505,7 @@ const sources = [
     "doi": "",
     "url": "",
     "abstract": "",
+    "links": [],
     "tags": [
       "Чипровци",
       "библиография",
@@ -487,6 +536,7 @@ const sources = [
     "doi": "",
     "url": "",
     "abstract": "",
+    "links": [],
     "tags": [],
     "topic": "Българи католици",
     "places": [],
@@ -513,6 +563,7 @@ const sources = [
     "doi": "",
     "url": "",
     "abstract": "",
+    "links": [],
     "tags": [],
     "topic": "Банат",
     "places": [],
@@ -539,6 +590,7 @@ const sources = [
     "doi": "",
     "url": "",
     "abstract": "",
+    "links": [],
     "tags": [
       "17 век",
       "българи католици",
@@ -569,6 +621,7 @@ const sources = [
     "doi": "",
     "url": "",
     "abstract": "",
+    "links": [],
     "tags": [],
     "topic": "Българи католици",
     "places": [],
@@ -596,6 +649,7 @@ const sources = [
     "doi": "",
     "url": "",
     "abstract": "",
+    "links": [],
     "tags": [],
     "topic": "Българи католици",
     "places": [],
@@ -622,6 +676,7 @@ const sources = [
     "doi": "",
     "url": "",
     "abstract": "",
+    "links": [],
     "tags": [],
     "topic": "Българи католици",
     "places": [],
@@ -648,6 +703,7 @@ const sources = [
     "doi": "",
     "url": "",
     "abstract": "",
+    "links": [],
     "tags": [],
     "topic": "Българи католици",
     "places": [],
@@ -676,6 +732,7 @@ const sources = [
     "doi": "",
     "url": "",
     "abstract": "",
+    "links": [],
     "tags": [],
     "topic": "Българи католици",
     "places": [],
@@ -702,6 +759,7 @@ const sources = [
     "doi": "",
     "url": "",
     "abstract": "Despite numerous studies on the Bulgarian literary language from the times before the Bulgarian renascence there still exist manuscripts that have not yet been analyzed properly, viz. samples of Paulician literature from the end of the 18th century. In addition to being a valuable source for Bulgarian historical grammar and dialectology they reflect the typical trend of the period towards democratization of the Bulgarian literary language. In previous research examples of the literary language on a vernacular base (KENO) (Demina 1971:121) were only taken from the Damaskini. The aim of my research is to enlarge the corpus of texts assumed to represent KENO and to include in it the Paulician literature from the second half of the 18th century.",
+    "links": [],
     "tags": [],
     "topic": "Българи католици",
     "places": [],
@@ -729,6 +787,13 @@ const sources = [
     "doi": "",
     "url": "",
     "abstract": "",
+    "links": [
+      {
+        "label": "PDF — Известия на ИБЕ, кн. XXIX",
+        "url": "https://ibl.bas.bg/izvestiya/wp-content/uploads/2018/08/IZVESTIA-IBE-XXIX-7-46-Tsibranska-KostovaAbadzieva.pdf",
+        "full": true
+      }
+    ],
     "tags": [
       "17–18 век",
       "Абагар",
@@ -763,6 +828,13 @@ const sources = [
     "doi": "",
     "url": "",
     "abstract": "",
+    "links": [
+      {
+        "label": "PDF — дисертацията (ИБЕ–БАН)",
+        "url": "https://ibl.bas.bg/wp-content/uploads/2016/07/%D0%94%D0%B8%D1%81%D0%B5%D1%80%D1%82%D0%B0%D1%86%D0%B8%D1%8F-%D0%9C.%D0%90%D0%B1%D0%B0%D0%B4%D0%B6%D0%B8%D0%B5%D0%B2%D0%B0.pdf",
+        "full": true
+      }
+    ],
     "tags": [],
     "topic": "Българи католици",
     "places": [],
@@ -790,6 +862,7 @@ const sources = [
     "doi": "",
     "url": "https://acadsudest.ro/sites/default/files/BSCSE/7%202017%2C%20V%C4%83t%C4%83%C8%99escu%2C%20Iordan..pdf",
     "abstract": "",
+    "links": [],
     "tags": [],
     "topic": "Българи католици",
     "places": [],
@@ -816,6 +889,7 @@ const sources = [
     "doi": "",
     "url": "",
     "abstract": "",
+    "links": [],
     "tags": [],
     "topic": "Българи католици",
     "places": [],
@@ -849,6 +923,13 @@ const sources = [
     "doi": "",
     "url": "",
     "abstract": "",
+    "links": [
+      {
+        "label": "PDF — сборникът на конференцията на ИБЕ, 2019 (с. 147)",
+        "url": "https://ibl.bas.bg/wp-content/uploads/2019/05/Sbornik-s-Dokladi_kor.-I-restr.pdf",
+        "full": true
+      }
+    ],
     "tags": [
       "Banat",
       "Banat Bulgarians",
@@ -882,6 +963,7 @@ const sources = [
     "doi": "",
     "url": "",
     "abstract": "",
+    "links": [],
     "tags": [],
     "topic": "Българи католици",
     "places": [],
@@ -908,6 +990,13 @@ const sources = [
     "doi": "",
     "url": "",
     "abstract": "",
+    "links": [
+      {
+        "label": "ResearchGate",
+        "url": "https://www.researchgate.net/publication/358191933",
+        "full": true
+      }
+    ],
     "tags": [],
     "topic": "Българи католици",
     "places": [],
@@ -936,6 +1025,13 @@ const sources = [
     "doi": "",
     "url": "",
     "abstract": "",
+    "links": [
+      {
+        "label": "PDF — сборникът на конференцията на ИБЕ, 2020 (с. 250)",
+        "url": "https://ibl.bas.bg/wp-content/uploads/2020/07/PROCEEDINGS_IBLCONF2020_vol1a.pdf",
+        "full": true
+      }
+    ],
     "tags": [],
     "topic": "Българи католици",
     "places": [],
@@ -962,6 +1058,13 @@ const sources = [
     "doi": "",
     "url": "",
     "abstract": "",
+    "links": [
+      {
+        "label": "Електронна библиотека на ИБЕ",
+        "url": "https://ibl.bas.bg/lib/index.php?bookId=RBE_t5&action=show",
+        "full": true
+      }
+    ],
     "tags": [],
     "topic": "Българи католици",
     "places": [],
@@ -988,6 +1091,13 @@ const sources = [
     "doi": "",
     "url": "",
     "abstract": "",
+    "links": [
+      {
+        "label": "Oxford University Press",
+        "url": "https://academic.oup.com/book/33738",
+        "full": false
+      }
+    ],
     "tags": [],
     "topic": "Българи католици",
     "places": [],
@@ -1014,6 +1124,13 @@ const sources = [
     "doi": "",
     "url": "",
     "abstract": "Книгата представя историята на книжовния език на българите католици, живеещи в мултиетничната област Банат – от кодифицирането му през 1866 г. – до наши дни. Основната част на изследването е свързана с ревитализацията на книжовните традиции на тази общност след 1990 година. Акцентът е върху динамиката на лексикалната му система, предизвикана от новите обществено-политически и икономически условия. Представени са различни визии за модернизацията му, както и някои опити за (ре)кодификация на нормативната система.",
+    "links": [
+      {
+        "label": "Страница на издателя (ЮЗУ)",
+        "url": "http://press.swu.bg/bg/categorylistbg/20-filcatbg/488-mladenova-banat",
+        "full": false
+      }
+    ],
     "tags": [],
     "topic": "Банат",
     "places": [],
@@ -1040,6 +1157,13 @@ const sources = [
     "doi": "",
     "url": "",
     "abstract": "Книгата представлява филологическо изследване и издание на павликянската българска история от 1849, дело на отец Едоардо Валпа. Това е първо пълно издание на паметник на павликянската книжнина. Изданието е критическо, с включен материал от всички налични ръкописи. Паралелно се издава и текста на Царственника от 1844. Съдържа и езиково описание.",
+    "links": [
+      {
+        "label": "Ръкописът от 1849 г. в НБКМ",
+        "url": "https://www.nationallibrary.bg/www/2022/04/05/zaropismo-illi-balgarska-istoria-1849-%D0%B3/",
+        "full": false
+      }
+    ],
     "tags": [],
     "topic": "Българи католици",
     "places": [],
@@ -1068,6 +1192,13 @@ const sources = [
     "doi": "",
     "url": "",
     "abstract": "The report is dedicated to a newly discovered manuscript from the 19th century in Rakovski, written by Father Eduardo of Torino and represents a notarial book in which agreements and wills of Bulgarian Catholics are recorded. The manuscript belongs to the literature of Bulgarian Catholics, is not known to scientists and the next report presents for the first time data on its content and features. The discovery enriches the idea of this part of Bulgarian literature, as this type of notarial book has not been discovered, described and researched so far, and it contains valuable information about public relations between the representatives of this part of the Bulgarian people. The manuscript adds important data to the knowledge of the work of Father Eduardo of Torino, who wrote in modern Bulgarian language among Bulgarian Catholics in the second half of the 19th century.",
+    "links": [
+      {
+        "label": "PDF — сборникът на конференцията на ИБЕ, 2022 (с. 338)",
+        "url": "https://ibl.bas.bg/wp-content/uploads/2022/06/Proceedings_IBL_2022.pdf",
+        "full": true
+      }
+    ],
     "tags": [],
     "topic": "Българи католици",
     "places": [],
@@ -1094,6 +1225,7 @@ const sources = [
     "doi": "10.47810/BL.70.23.03.04",
     "url": "",
     "abstract": "The article presents results of a study of the historical aspects of Bulgarian anthro-ponymy obtained as part of a postdoctoral project. The study is based on 19th-century archival materials that have been introduced into scientific circulation only recently. It reveals the unique features of the formation of the anthroponymy char-acteristic of a Bulgarian community outside Bulgaria’s ethnic territory. The study presents linguistic and statistical data on 19th-century Bulgarian personal names, highlighting the changes in the personal name system of the settlers in Tabak (South Bessarabia) that took place under polylinguistic influence.",
+    "links": [],
     "tags": [
       "Bessarabian Bulgarians",
       "historical anthroponymy",
@@ -1127,6 +1259,18 @@ const sources = [
     "doi": "",
     "url": "",
     "abstract": "The diachronic aspect of Bulgarian anthroponymy and the problems related to the language, history and cultural heritage of Bulgarian communities outside the state borders have never lost their relevance for Bulgarian science. The focus of this study is a little-studied aspect of the problems related to the personal name system of the Bulgarian immigrants from Southern Bessarabia. The purpose of the article is to systematize and introduce into scientific circulation anthroponymic data from archival documents from the beginning of the 19th century. The article presents the discussion about the name of the village, as well as various hypotheses about the origin of the oikonym and the toponymic space (residential district names).",
+    "links": [
+      {
+        "label": "PDF — сборникът на конференцията на ИБЕ, 2023 (с. 228)",
+        "url": "https://ibl.bas.bg/wp-content/uploads/2023/06/ZA-pechat_DOKLADI_IBE_2023.pdf",
+        "full": true
+      },
+      {
+        "label": "CEEOL",
+        "url": "https://www.ceeol.com/search/chapter-detail?id=1199276",
+        "full": false
+      }
+    ],
     "tags": [
       "Bessarabian Bulgarians",
       "Bulgarian onomastics",
@@ -1162,6 +1306,7 @@ const sources = [
     "doi": "",
     "url": "",
     "abstract": "",
+    "links": [],
     "tags": [],
     "topic": "Бесарабия",
     "places": [],
@@ -1189,6 +1334,7 @@ const sources = [
     "doi": "10.53656/for23.331knij",
     "url": "https://journals.azbuki.bg/en/foreignlanguages/knizninata-na-blgarite-katolici-v-xristomatiya-predizvikatelstva-na-lingvodidaktikata-i-kulturologiyata/view",
     "abstract": "The article outlines the scope and methodological principles for the compilation of a Chrestomathy with samples of the literature of the Bulgarian Catholics in the period XVII – XXI centuries. Its significant representatives from diachrony to synchrony are summarized. The project of the Chrestomathy aims at delineating the cultural identity of the marginal group of Banat Bulgarians as part of a much larger and long-standing tradition. Such a product of linguodidactics and literary history would be useful not only for Bulgarian studies, but also for the typological study of foreign linguistic and literary influences on the Bulgarian Catholic community in Bulgaria and abroad, for the interlanguage contacts of Bulgarian with Latin, Italian, Croatian, Romanian, Hungarian language.",
+    "links": [],
     "tags": [
       "Banat",
       "Banat Bulgarians",
@@ -1220,6 +1366,7 @@ const sources = [
     "doi": "",
     "url": "",
     "abstract": "",
+    "links": [],
     "tags": [],
     "topic": "Българи католици",
     "places": [],
@@ -1246,6 +1393,7 @@ const sources = [
     "doi": "",
     "url": "",
     "abstract": "",
+    "links": [],
     "tags": [],
     "topic": "Българи католици",
     "places": [],
@@ -1274,6 +1422,7 @@ const sources = [
     "doi": "",
     "url": "",
     "abstract": "",
+    "links": [],
     "tags": [],
     "topic": "Банат",
     "places": [],
@@ -1300,6 +1449,18 @@ const sources = [
     "doi": "",
     "url": "",
     "abstract": "",
+    "links": [
+      {
+        "label": "Academia.edu (качено от авторката)",
+        "url": "https://www.academia.edu/122228779",
+        "full": true
+      },
+      {
+        "label": "Издателство на БАН",
+        "url": "https://press.bas.bg/bg/eBooks-105/show-106(80)",
+        "full": false
+      }
+    ],
     "tags": [],
     "topic": "Банат",
     "places": [],
@@ -1326,6 +1487,7 @@ const sources = [
     "doi": "",
     "url": "",
     "abstract": "This study examines female personal names attested among the Bessarabian Bulgarians of Bolhrad (Odesa region, Ukraine), descendants of Bulgarian populations who left their native lands in the early nineteenth century and settled in Southern Bessarabia. The analysis is based on archival documents collected through targeted fieldwork and archival research. Particular attention is paid to rarely attested and distinctive female names that illustrate processes of introduction, persistence, and disappearance within the anthroponymic system of the Bessarabian Bulgarians. Many of these names are absent from later historical sources, which makes them a unique resource for Bulgarian historical onomastics. At the same time, they function as carriers of ancestral and national memory within the Bessarabian Bulgarian community. The article also traces the trajectories of selected common and rare names in the contemporary female naming repertoire, drawing on data from the 2001 population census to examine their present-day distribution.",
+    "links": [],
     "tags": [
       "19 век",
       "20 век",
@@ -1367,6 +1529,7 @@ const sources = [
     "doi": "",
     "url": "",
     "abstract": "",
+    "links": [],
     "tags": [],
     "topic": "Бесарабия",
     "places": [
@@ -1396,6 +1559,7 @@ const sources = [
     "doi": "",
     "url": "",
     "abstract": "",
+    "links": [],
     "tags": [],
     "topic": "Бесарабия",
     "places": [],
@@ -1425,6 +1589,7 @@ const sources = [
     "doi": "",
     "url": "https://www.researchgate.net/publication/412213308_BISERICA_ORTODOXA_SI_IMPLICATIILE_SALE_IN_PROCESELE_EDUCATIV-CULTURALE_DIN_SPATIUL_ROMANESC_in_secolul_al_XIX-lea_-_secolul_al_XXI-lea",
     "abstract": "",
+    "links": [],
     "tags": [],
     "topic": "Бесарабия",
     "places": [],
@@ -1451,6 +1616,7 @@ const sources = [
     "doi": "",
     "url": "",
     "abstract": "The article examines male personal names of the Bessarabian Bulgarians in the nineteenth century, with a focus on rarely attested and specific anthroponyms. These names are of high indicative value, as they reflect processes of inclusion and disappearance within the naming system. A significant number of them do not appear in later historical sources, which makes them a valuable object of study in Bulgarian historical onomastics. Their predominantly native origin testifies to the stability of the Bulgarian linguistic and cultural tradition. By correlating anthroponymic data with historical and sociocultural context, the study reveals the mechanisms by which naming traditions are preserved and transmitted as carriers of familial and national memory within the Bessarabian Bulgarian diaspora",
+    "links": [],
     "tags": [
       "19 век",
       "Bessarabian Bulgarians",

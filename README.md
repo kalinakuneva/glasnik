@@ -57,3 +57,6 @@ tools/              Скрипт за превръщане на Zotero CSV в js
 2. С инсталиран Python изпълнете в папката на проекта:
    `python3 tools/zotero_to_js.py export-data.csv js/sources.js`
 3. Качете новия `js/sources.js` в GitHub.
+
+Линковете към пълни текстове, които ги няма в Zotero, се пазят в `tools/extra_links.json`
+и се добавят автоматично при всяко генериране на `js/sources.js`.

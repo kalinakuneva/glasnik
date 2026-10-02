@@ -1384,6 +1384,18 @@ button.tag:hover {
   color: #8A4A12;
 }
 
+.badge-open {
+  background: var(--green);
+  color: var(--white);
+}
+
+.check-highlight {
+  background: var(--green-light);
+  border-radius: var(--radius-small);
+  padding: 8px 10px;
+  margin-bottom: 12px;
+}
+
 .bib-year {
   margin-left: auto;
   font-family: var(--font-heading);

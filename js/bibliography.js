@@ -22,6 +22,7 @@ const bibList = document.getElementById("bib-list");
   const stats = [
     [sources.length, "записа"],
     [primary, "исторически извора"],
+    [sources.filter(isOpenAccess).length, "с пълен текст онлайн"],
     [authors.size, "автори"],
     [Math.min.apply(null, years) + "–" + Math.max.apply(null, years), "години на издаване"]
   ];
@@ -46,6 +47,19 @@ function sortSources(list) {
   });
 }
 
+// Има ли запис пълен текст в свободен достъп
+function isOpenAccess(s) {
+  return Boolean(s.url || s.doi) || s.links.some(function (link) { return link.full; });
+}
+
+function hasAnyLink(s) {
+  return Boolean(s.url || s.doi) || s.links.length > 0;
+}
+
+function linkButton(url, label) {
+  return '<a class="btn btn-outline btn-small" href="' + escapeHtml(url) + '" target="_blank" rel="noopener">' + escapeHtml(label) + ' ↗</a>';
+}
+
 function sourceHtml(s, query) {
   const who = s.authors.length
     ? s.authors.join("; ")
@@ -62,8 +76,15 @@ function sourceHtml(s, query) {
   const imprint = [s.place, s.publisher].filter(Boolean).join(": ");
 
   const links = [];
-  if (s.doi) links.push('<a class="btn btn-outline btn-small" href="https://doi.org/' + escapeHtml(s.doi) + '" target="_blank" rel="noopener">DOI</a>');
-  if (s.url) links.push('<a class="btn btn-outline btn-small" href="' + escapeHtml(s.url) + '" target="_blank" rel="noopener">Отвори онлайн</a>');
+  if (s.doi) links.push(linkButton("https://doi.org/" + s.doi, "DOI"));
+  if (s.url) links.push(linkButton(s.url, "Отвори онлайн"));
+  s.links.forEach(function (link) {
+    links.push(linkButton(link.url, link.label));
+  });
+  // Ако няма никакъв линк — търсене в световния библиотечен каталог
+  if (!hasAnyLink(s)) {
+    links.push(linkButton("https://search.worldcat.org/search?q=" + encodeURIComponent(s.title), "Намери в библиотека (WorldCat)"));
+  }
   s.places.forEach(function (placeName) {
     const community = findCommunityByName(placeName);
     if (community) {
@@ -80,6 +101,7 @@ function sourceHtml(s, query) {
       '<span class="badge">' + escapeHtml(s.type) + '</span>' +
       '<span class="badge' + (s.kind === "Извор" ? ' badge-primary-source' : ' badge-neutral') + '">' + escapeHtml(s.kind) + '</span>' +
       '<span class="badge badge-neutral">' + escapeHtml(s.topic) + '</span>' +
+      (isOpenAccess(s) ? '<span class="badge badge-open">Пълен текст онлайн</span>' : '') +
       '<span class="bib-year">' + (s.year || "б.г.") + '</span>' +
     '</div>' +
     (who ? '<p class="bib-authors">' + highlight(who, query) + '</p>' : '') +
@@ -103,6 +125,7 @@ function renderBibliography() {
   const topics = getCheckedValues("bib-topic");
   const kinds = getCheckedValues("bib-kind");
   const types = getCheckedValues("bib-type");
+  const onlyOpen = document.getElementById("bib-open").checked;
 
   const filtered = sources.filter(function (s) {
     return matchesQuery([
@@ -111,7 +134,8 @@ function renderBibliography() {
     ], query) &&
       (topics.length === 0 || topics.includes(s.topic)) &&
       (kinds.length === 0 || kinds.includes(s.kind)) &&
-      (types.length === 0 || types.includes(s.type));
+      (types.length === 0 || types.includes(s.type)) &&
+      (!onlyOpen || isOpenAccess(s));
   });
 
   document.getElementById("bib-count").textContent =

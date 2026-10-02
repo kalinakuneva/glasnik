@@ -1,8 +1,12 @@
 """Превръща Zotero CSV експорт в js/sources.js за сайта Гласник."""
-import csv, json, re, sys
+import csv, json, os, re, sys
 from collections import Counter
 
 src, out = sys.argv[1], sys.argv[2]
+
+# Допълнителни линкове (tools/extra_links.json), които ги няма в Zotero
+links_file = os.path.join(os.path.dirname(os.path.abspath(__file__)), "extra_links.json")
+extra_links = json.load(open(links_file, encoding="utf-8")) if os.path.exists(links_file) else {}
 rows = list(csv.DictReader(open(src, encoding="utf-8-sig")))
 
 TYPE = {"book": "Книга", "journalArticle": "Статия", "bookSection": "Глава от книга", "thesis": "Дисертация"}
@@ -16,7 +20,14 @@ def clean(s):
     return s.rstrip(",").strip()
 
 def people(s):
-    return [clean(p) for p in (s or "").split(";") if clean(p)]
+    result = []
+    for p in (s or "").split(";"):
+        name = clean(p)
+        if re.search(r"\s\w$", name):   # „Милев, Никола И“ → „Милев, Никола И.“
+            name += "."
+        if name:
+            result.append(name)
+    return result
 
 abstract_count = Counter(r["Abstract Note"] for r in rows if r["Abstract Note"])
 doi_count = Counter(r["DOI"] for r in rows if r["DOI"])
@@ -74,6 +85,7 @@ for r in rows:
         "doi": doi.replace("https://doi.org/", ""),
         "url": url,
         "abstract": abstract,
+        "links": extra_links.get(r["Key"], []),
         "tags": tags,
         "topic": topic(r, alltext),
         "places": places(alltext),
@@ -94,6 +106,8 @@ header = """/* =========================================================
    topic  — „Банат“, „Бесарабия“ или „Българи католици“
    kind   — „Извор“ (издания до 1870 г.) или „Изследване“
    places — общности от data.js, с които записът е свързан
+   links  — допълнителни линкове от tools/extra_links.json
+            (full: true = пълен текст в свободен достъп)
    ========================================================= */
 
 const sources = """
