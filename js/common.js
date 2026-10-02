@@ -100,6 +100,44 @@ function uniqueValues(list, key) {
 }
 
 
+/* ---------- Библиографско цитиране (за js/sources.js) ---------- */
+
+// "Брага, Татяна" → "Брага, Т."
+function shortName(fullName) {
+  const parts = fullName.split(",");
+  if (parts.length < 2) return fullName;
+  const initials = parts[1].trim().split(/\s+/).map(function (word) {
+    return word.charAt(0) + ".";
+  }).join(" ");
+  return parts[0].trim() + ", " + initials;
+}
+
+// Връща цитат като обикновен текст:
+// Фамилия, И. (Година). Заглавие. В: Сборник, том(брой), с. 1–10. Място: Издател.
+function formatCitation(source) {
+  const isCyrillic = /[а-яА-Я]/.test(source.title);
+  let who = source.authors.map(shortName).join(", ");
+  if (!who && source.editors.length) {
+    who = source.editors.map(shortName).join(", ") + (isCyrillic ? " (съст.)" : " (eds.)");
+  }
+
+  let text = (who ? who + " " : "") + "(" + (source.year || "б.г.") + "). " + source.title + ".";
+
+  if (source.container) {
+    text += (isCyrillic ? " В: " : " In: ") + source.container;
+    if (source.volume) text += ", " + source.volume;
+    if (source.issue) text += "(" + source.issue + ")";
+    text += ".";
+  }
+  if (source.pages) text += (isCyrillic ? " С. " : " Pp. ") + source.pages + ".";
+  if (source.place || source.publisher) {
+    text += " " + [source.place, source.publisher].filter(Boolean).join(": ") + ".";
+  }
+  if (source.doi) text += " DOI: " + source.doi;
+  return text.trim();
+}
+
+
 /* ---------- Икони (прост inline SVG, без външни библиотеки) ---------- */
 
 const icons = {
@@ -140,6 +178,7 @@ const navItems = [
   { page: "texts",       href: "texts.html",       label: "Текстове" },
   { page: "dictionary",  href: "dictionary.html",  label: "Речник" },
   { page: "archive",     href: "archive.html",     label: "Архив" },
+  { page: "bibliography", href: "bibliography.html", label: "Библиография" },
   { page: "about",       href: "about.html",       label: "За проекта" }
 ];
 

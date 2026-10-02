@@ -22,10 +22,13 @@ communities.html    Общности (детайли: communities.html?id=1)
 texts.html          Текстове и корпус (търсене: texts.html?q=преселение)
 archive.html        Архив (запис: archive.html?id=1)
 dictionary.html     Речник (дума: dictionary.html?word=шиник)
+bibliography.html   Библиография от Zotero (запис: bibliography.html?id=КЛЮЧ)
 about.html          За проекта
 
 css/style.css       Целият дизайн; цветовете са в :root най-горе
-js/data.js          ВСИЧКИ демонстрационни данни
+js/data.js          Данни за общности, текстове, архив и речник
+js/sources.js       Библиографията (генерирана от Zotero)
+js/bibliography.js  Търсене, филтри и цитиране в библиографията
 js/common.js        Header, footer, мобилно меню, помощни функции
 js/home.js          Малката карта на началната страница
 js/map.js           Картата, филтрите и търсенето по нея
@@ -34,6 +37,7 @@ js/texts.js         Търсене и филтри в текстовете
 js/archive.js       Филтри и модален прозорец в архива
 js/dictionary.js    Търсене в речника
 assets/images/      Място за бъдещи изображения
+tools/              Скрипт за превръщане на Zotero CSV в js/sources.js
 ```
 
 ## Как да редактирате
@@ -46,3 +50,10 @@ assets/images/      Място за бъдещи изображения
 - **Меню и footer** — в `js/common.js` (масивът `navItems` и функциите `renderHeader` / `renderFooter`).
 
 Всички данни са примерни и служат само за демонстрация. Координатите са приблизителни.
+
+## Обновяване на библиографията от Zotero
+
+1. В Zotero (zotero.org → група Glasnik) маркирайте всички записи → Export → CSV.
+2. С инсталиран Python изпълнете в папката на проекта:
+   `python3 tools/zotero_to_js.py export-data.csv js/sources.js`
+3. Качете новия `js/sources.js` в GitHub.

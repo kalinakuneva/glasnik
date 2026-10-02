@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="bg">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Гласник — Библиография</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body data-page="bibliography">
+
+  <div id="site-header"></div>
+
+  <main>
+    <section class="page-header">
+      <div class="container">
+        <h1>Библиография</h1>
+        <p>Научни изследвания и исторически издания за българите католици, банатските и бесарабските българи. Данните идват от библиотеката на проекта в Zotero.</p>
+        <ul class="bib-stats" id="bib-stats" aria-label="Обобщение"></ul>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container sidebar-layout">
+
+        <!-- ФИЛТРИ -->
+        <aside class="filters-panel card" aria-label="Филтри за библиографията">
+          <label class="field-label" for="bib-search">Търсене</label>
+          <input class="input" type="search" id="bib-search" placeholder="Автор, заглавие, ключова дума…" style="margin-bottom: 16px;">
+
+          <fieldset class="filter-group">
+            <legend>Тема</legend>
+            <label class="check"><input type="checkbox" name="bib-topic" value="Банат"> Банат</label>
+            <label class="check"><input type="checkbox" name="bib-topic" value="Бесарабия"> Бесарабия</label>
+            <label class="check"><input type="checkbox" name="bib-topic" value="Българи католици"> Българи католици</label>
+          </fieldset>
+
+          <fieldset class="filter-group">
+            <legend>Вид източник</legend>
+            <label class="check"><input type="checkbox" name="bib-kind" value="Извор"> Исторически извори (до 1870 г.)</label>
+            <label class="check"><input type="checkbox" name="bib-kind" value="Изследване"> Научни изследвания</label>
+          </fieldset>
+
+          <fieldset class="filter-group">
+            <legend>Тип публикация</legend>
+            <label class="check"><input type="checkbox" name="bib-type" value="Книга"> Книги</label>
+            <label class="check"><input type="checkbox" name="bib-type" value="Статия"> Статии</label>
+            <label class="check"><input type="checkbox" name="bib-type" value="Глава от книга"> Глави от книги</label>
+            <label class="check"><input type="checkbox" name="bib-type" value="Дисертация"> Дисертации</label>
+          </fieldset>
+
+          <button type="button" class="btn btn-outline btn-block" id="reset-bib" style="margin-top: 8px;">Изчисти филтрите</button>
+        </aside>
+
+        <!-- РЕЗУЛТАТИ -->
+        <div>
+          <div class="results-info">
+            <span id="bib-count" aria-live="polite"></span>
+            <label class="sort-label">
+              <span>Подреди:</span>
+              <select class="select" id="bib-sort">
+                <option value="year-asc">по година (най-стари)</option>
+                <option value="year-desc">по година (най-нови)</option>
+                <option value="author">по автор</option>
+              </select>
+            </label>
+          </div>
+          <ol class="bib-list" id="bib-list"></ol>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div id="site-footer"></div>
+
+  <script src="js/data.js"></script>
+  <script src="js/sources.js"></script>
+  <script src="js/common.js"></script>
+  <script src="js/bibliography.js"></script>
+</body>
+</html>

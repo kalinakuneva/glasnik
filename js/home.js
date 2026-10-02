@@ -1,9 +1,9 @@
 /* =========================================================
    Гласник — начална страница
-   Иконки в картичките и малката карта-преглед.
+   Иконки в карточките и малката карта-преглед.
    ========================================================= */
 
-// Иконки в четирите основни картички
+// Иконки в четирите основни карточки
 document.getElementById("icon-history").innerHTML = icons.history;
 document.getElementById("icon-people").innerHTML = icons.people;
 document.getElementById("icon-language").innerHTML = icons.language;

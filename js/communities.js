@@ -59,6 +59,38 @@ function relatedListHtml(items, emptyText) {
   return '<ul class="related-list">' + items.join("") + '</ul>';
 }
 
+// Литература от библиографията (js/sources.js): първо трудовете
+// за самото място, после — за региона като цяло.
+function literatureHtml(community) {
+  if (typeof sources === "undefined") return "";
+
+  const aboutPlace = sources.filter(function (s) {
+    return s.places.includes(community.name);
+  });
+  const aboutRegion = sources.filter(function (s) {
+    return s.topic === community.region && !s.places.includes(community.name);
+  });
+  if (aboutPlace.length === 0 && aboutRegion.length === 0) return "";
+
+  function item(s) {
+    return '<li><a href="bibliography.html?id=' + s.id + '">' + escapeHtml(s.title) + '</a>' +
+           '<span class="muted small">' + escapeHtml(s.authors.map(shortName).join(", ") || s.type) +
+           ' · ' + (s.year || "б.г.") + '</span></li>';
+  }
+
+  let html = '<div class="detail-section"><h2>Литература</h2>';
+  if (aboutPlace.length) {
+    html += '<h3>За ' + escapeHtml(community.name) + '</h3><ul class="related-list">' + aboutPlace.map(item).join("") + '</ul>';
+  }
+  if (aboutRegion.length) {
+    html += '<h3 style="margin-top: 16px;">За ' + escapeHtml(community.region) + '</h3>' +
+            '<ul class="related-list">' + aboutRegion.slice(0, 4).map(item).join("") + '</ul>' +
+            '<p class="small"><a href="bibliography.html?topic=' + encodeURIComponent(community.region) + '">' +
+            'Всички ' + aboutRegion.length + ' записа за ' + escapeHtml(community.region) + ' →</a></p>';
+  }
+  return html + '</div>';
+}
+
 function renderCommunityDetail(community) {
   document.title = "Гласник — " + community.name;
 
@@ -100,6 +132,8 @@ function renderCommunityDetail(community) {
           '<div class="detail-section"><h2>История</h2><p>' + escapeHtml(community.history) + '</p></div>' +
           '<div class="detail-section"><h2>Култура</h2><p>' + escapeHtml(community.culture) + '</p></div>' +
           '<div class="detail-section"><h2>Език</h2><p>' + escapeHtml(community.language) + '</p></div>' +
+
+          literatureHtml(community) +
 
           '<div class="detail-section">' +
             '<h2>Свързани материали</h2>' +

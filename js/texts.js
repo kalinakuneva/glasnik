@@ -95,6 +95,13 @@ function renderOtherResults(query) {
   if (inArchive > 0) links.push('<a href="archive.html?q=' + q + '">архив (' + inArchive + ')</a>');
   if (inDictionary > 0) links.push('<a href="dictionary.html?q=' + q + '">речник (' + inDictionary + ')</a>');
 
+  if (typeof sources !== "undefined") {
+    const inSources = sources.filter(function (s) {
+      return matchesQuery([s.title, s.translatedTitle, s.authors.join(" "), s.abstract, s.tags.join(" ")], query);
+    }).length;
+    if (inSources > 0) links.push('<a href="bibliography.html?q=' + q + '">библиография (' + inSources + ')</a>');
+  }
+
   if (links.length === 0) {
     box.hidden = true;
     return;
