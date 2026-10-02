@@ -63,6 +63,9 @@ for r in rows:
         abstract and abstract_count[r["Abstract Note"]] > 1 and doi and "for23" in doi and "Чуждоезиково" not in r["Publication Title"]):
         warnings.append(f'{r["Key"]} „{title[:60]}“: резюмето и DOI са копирани от друг запис')
         abstract, doi, url = "", "", ""
+    # Ако DOI-то не работи, го скриваме и показваме линка от extra_links.json
+    if any(link.get("replacesDoi") for link in extra_links.get(r["Key"], [])):
+        doi = ""
     tags = [clean(t) for t in (r["Manual Tags"] or "").split(";") if clean(t)]
     alltext = " ".join([title, r["Publication Title"], r["Place"], r["Publisher"], extra, " ".join(tags), r["Author"]])
     year = int(r["Publication Year"]) if r["Publication Year"].isdigit() else None
@@ -85,7 +88,7 @@ for r in rows:
         "doi": doi.replace("https://doi.org/", ""),
         "url": url,
         "abstract": abstract,
-        "links": extra_links.get(r["Key"], []),
+        "links": [{k: v for k, v in link.items() if k != "replacesDoi"} for link in extra_links.get(r["Key"], [])],
         "tags": tags,
         "topic": topic(r, alltext),
         "places": places(alltext),

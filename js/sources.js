@@ -1222,10 +1222,16 @@ const sources = [
     "publisher": "",
     "place": "",
     "isbn": "",
-    "doi": "10.47810/BL.70.23.03.04",
+    "doi": "",
     "url": "",
     "abstract": "The article presents results of a study of the historical aspects of Bulgarian anthro-ponymy obtained as part of a postdoctoral project. The study is based on 19th-century archival materials that have been introduced into scientific circulation only recently. It reveals the unique features of the formation of the anthroponymy char-acteristic of a Bulgarian community outside Bulgaria’s ethnic territory. The study presents linguistic and statistical data on 19th-century Bulgarian personal names, highlighting the changes in the personal name system of the settlers in Tabak (South Bessarabia) that took place under polylinguistic influence.",
-    "links": [],
+    "links": [
+      {
+        "label": "Брой 3/2023 на сп. „Български език“",
+        "url": "https://balgarskiezik.eu/3-2023.html",
+        "full": true
+      }
+    ],
     "tags": [
       "Bessarabian Bulgarians",
       "historical anthroponymy",
