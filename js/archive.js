@@ -75,7 +75,11 @@ function openArchiveItem(id) {
     '<dt>Място</dt><dd>' + placeHtml + '</dd>' +
     '<dt>Език</dt><dd>' + escapeHtml(item.language) + '</dd>' +
     '<dt>Тип документ</dt><dd>' + escapeHtml(item.type) + '</dd>' +
-    '<dt>Сигнатура</dt><dd>' + escapeHtml(item.signature) + '</dd>';
+    '<dt>Местонахождение</dt><dd>' + escapeHtml(item.signature) + '</dd>' +
+    (item.source
+      ? '<dt>Източник</dt><dd>' + escapeHtml(item.source) +
+        (item.sourceUrl ? ' <a href="' + escapeHtml(item.sourceUrl) + '" target="_blank" rel="noopener">↗</a>' : '') + '</dd>'
+      : '');
 
   document.getElementById("modal-description").textContent = item.description;
 
@@ -134,7 +138,11 @@ modal.addEventListener("click", function (event) {
 });
 
 document.getElementById("btn-preview").addEventListener("click", function () {
-  alert("Преглед на дигиталното копие: " + currentItem.title + "\n\nВ демонстрационната версия няма прикачено изображение.");
+  if (currentItem.sourceUrl) {
+    window.open(currentItem.sourceUrl, "_blank", "noopener");
+  } else {
+    alert("За този документ няма дигитално копие.");
+  }
 });
 
 document.getElementById("btn-transcription").addEventListener("click", function () {

@@ -25,7 +25,7 @@ function renderTexts() {
 
   const filtered = texts.filter(function (t) {
     return (activeCategory === "all" || t.category === activeCategory) &&
-           matchesQuery([t.title, t.excerpt, t.place, t.keywords.join(" ")], query) &&
+           matchesQuery([t.title, t.excerpt, t.place, t.keywords.join(" "), t.source || ""], query) &&
            (regionSelect.value === "" || t.region === regionSelect.value) &&
            (genreSelect.value === "" || t.type === genreSelect.value) &&
            (periodSelect.value === "" || centuryOf(t.year) === periodSelect.value) &&
@@ -61,6 +61,10 @@ function renderTexts() {
              '<p class="card-meta">' + highlight(t.place, query) + ', ' + escapeHtml(t.region) +
                ' · ' + t.year + ' · ' + escapeHtml(t.variety) + '</p>' +
              '<p class="excerpt">„' + highlight(t.excerpt, query) + '“</p>' +
+             (t.source
+               ? '<p class="text-source">Източник: ' + escapeHtml(t.source) +
+                 (t.sourceUrl ? ' · <a href="' + escapeHtml(t.sourceUrl) + '" target="_blank" rel="noopener">виж страницата ↗</a>' : '') + '</p>'
+               : '') +
              '<ul class="tag-list" aria-label="Ключови думи">' + keywordButtons + '</ul>' +
              '<div class="card-footer">' +
                '<a class="btn btn-outline btn-small" href="map.html?q=' + encodeURIComponent(t.title) + '">Покажи на картата</a>' +

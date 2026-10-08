@@ -97,6 +97,14 @@ for r in rows:
     }
     sources.append(item)
 
+# Ръчни записи, които още ги няма в Zotero (tools/extra_sources.json)
+extra_file = os.path.join(os.path.dirname(os.path.abspath(__file__)), "extra_sources.json")
+if os.path.exists(extra_file):
+    known = {s["title"] for s in sources}
+    for item in json.load(open(extra_file, encoding="utf-8")).get("items", []):
+        if item["title"] not in known:
+            sources.append(item)
+
 sources.sort(key=lambda s: (s["year"] or 0))
 
 header = """/* =========================================================

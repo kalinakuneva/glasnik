@@ -35,6 +35,9 @@ function renderCommunityList() {
   grid.innerHTML = filtered.map(function (c) {
     return '<article class="card community-card">' +
              '<span class="badge">' + escapeHtml(c.period) + '</span>' +
+             (c.sources && c.sources.length
+               ? ' <span class="badge badge-open">С източници</span>'
+               : ' <span class="badge badge-neutral">Демо описание</span>') +
              '<h3 style="margin-top: 10px;">' + highlight(c.name, query) + '</h3>' +
              '<p class="card-meta" style="margin-bottom: 8px;">' + escapeHtml(c.region + ", " + c.country) + '</p>' +
              '<p>' + escapeHtml(c.description) + '</p>' +
@@ -91,6 +94,24 @@ function literatureHtml(community) {
   return html + '</div>';
 }
 
+// Секция се показва само ако има текст
+function detailSection(title, text) {
+  if (!text) return "";
+  return '<div class="detail-section"><h2>' + title + '</h2><p>' + escapeHtml(text) + '</p></div>';
+}
+
+// Източници на описанието; ако няма — бележка, че е демонстрационно
+function sourcesHtml(community) {
+  if (!community.sources || community.sources.length === 0) {
+    return '<p class="note">Описанието на тази общност е демонстрационно и предстои да бъде проверено по източници.</p>';
+  }
+  const items = community.sources.map(function (src) {
+    const link = src.url ? ' <a href="' + escapeHtml(src.url) + '" target="_blank" rel="noopener">↗</a>' : '';
+    return '<li>' + escapeHtml(src.text) + link + '</li>';
+  }).join("");
+  return '<div class="detail-section"><h2>Източници</h2><ul class="source-list">' + items + '</ul></div>';
+}
+
 function renderCommunityDetail(community) {
   document.title = "Гласник — " + community.name;
 
@@ -129,9 +150,10 @@ function renderCommunityDetail(community) {
         '<div>' +
           '<p style="font-size: 1.1rem;">' + escapeHtml(community.description) + '</p>' +
 
-          '<div class="detail-section"><h2>История</h2><p>' + escapeHtml(community.history) + '</p></div>' +
-          '<div class="detail-section"><h2>Култура</h2><p>' + escapeHtml(community.culture) + '</p></div>' +
-          '<div class="detail-section"><h2>Език</h2><p>' + escapeHtml(community.language) + '</p></div>' +
+          detailSection("История", community.history) +
+          detailSection("Култура", community.culture) +
+          detailSection("Език", community.language) +
+          sourcesHtml(community) +
 
           literatureHtml(community) +
 
@@ -167,9 +189,10 @@ function renderCommunityDetail(community) {
   if (typeof L !== "undefined") {
     const miniMap = L.map("mini-map", { scrollWheelZoom: false })
       .setView([community.latitude, community.longitude], 8);
-    L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
-      maxZoom: 18,
-      attribution: "&copy; OpenStreetMap"
+    L.tileLayer("https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png", {
+      maxZoom: 19,
+      subdomains: "abcd",
+      attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> &copy; <a href="https://carto.com/attributions">CARTO</a>'
     }).addTo(miniMap);
     L.circleMarker([community.latitude, community.longitude], {
       radius: 9, color: "#FFFFFF", weight: 2, fillColor: "#2F7D55", fillOpacity: 0.95
