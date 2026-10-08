@@ -9,7 +9,7 @@ const dictionaryInfo = {
   "title": "Речник на говора на с. Николаевска Терновка",
   "author": "Барболова, Зоя",
   "editor": "Бояджиев, Андрей",
-  "source": "Барболова, Зоя. Българският говор в Нилоевската Терновка. Одеса: Симекс-принт, 2013",
+  "source": "Барболова, Зоя. Българският говор в Николаевската Терновка (Украйна). София, 2013",
   "licence": "https://creativecommons.org/licenses/by-sa/4.0/"
 };
 
@@ -365,7 +365,7 @@ const dictionary = [
   "plain": "али",
   "pron": "",
   "variants": [],
-  "partOfSpeech": "conj.",
+  "partOfSpeech": "сз.",
   "posGroup": "съюз",
   "region": "Северно Причерноморие",
   "place": "Терновка",
@@ -596,7 +596,7 @@ const dictionary = [
   "plain": "арен",
   "pron": "",
   "variants": [],
-  "partOfSpeech": "прил. -а, -о, и",
+  "partOfSpeech": "прил. -а, -о, -и",
   "posGroup": "прилагателно",
   "region": "Северно Причерноморие",
   "place": "Терновка",
@@ -909,7 +909,7 @@ const dictionary = [
   ]
  },
  {
-  "id": "Ба̀бен-ден",
+  "id": "Бабен-ден",
   "word": "Ба̀бен ден",
   "plain": "бабен ден",
   "pron": "",
@@ -1095,7 +1095,7 @@ const dictionary = [
   ]
  },
  {
-  "id": "ба̀лка1",
+  "id": "балка1",
   "word": "ба̀лка",
   "plain": "балка",
   "pron": "",
@@ -1209,7 +1209,7 @@ const dictionary = [
   ]
  },
  {
-  "id": "бара̀шашки-рок",
+  "id": "барашашки-рок",
   "word": "бара̀шашки рок",
   "plain": "барашашки рок",
   "pron": "",
@@ -1766,11 +1766,11 @@ const dictionary = [
  },
  {
   "id": "бички",
-  "word": "бички",
+  "word": "бичкѝ",
   "plain": "бички",
   "pron": "",
   "variants": [],
-  "partOfSpeech": "ж. мн.",
+  "partOfSpeech": "мн.",
   "posGroup": "съществително",
   "region": "Северно Причерноморие",
   "place": "Терновка",
@@ -1944,7 +1944,7 @@ const dictionary = [
   "xr": [
    {
     "target": "бу",
-    "label": "бу1",
+    "label": "бу",
     "exists": true
    }
   ],
@@ -1960,7 +1960,7 @@ const dictionary = [
   "plain": "богуродица",
   "pron": "",
   "variants": [],
-  "partOfSpeech": "ж. соб.",
+  "partOfSpeech": "ж. собст.",
   "posGroup": "съществително",
   "region": "Северно Причерноморие",
   "place": "Терновка",
@@ -2321,8 +2321,8 @@ const dictionary = [
  },
  {
   "id": "бредем",
-  "word": "брѐда",
-  "plain": "бреда",
+  "word": "брѐдем",
+  "plain": "бредем",
   "pron": "",
   "variants": [],
   "partOfSpeech": "несв.",
@@ -2724,7 +2724,7 @@ const dictionary = [
   "plain": "бугор",
   "pron": "",
   "variants": [],
-  "partOfSpeech": "ж.",
+  "partOfSpeech": "м.",
   "posGroup": "съществително",
   "region": "Северно Причерноморие",
   "place": "Терновка",
@@ -2930,7 +2930,7 @@ const dictionary = [
   ]
  },
  {
-  "id": "бу̀пка",
+  "id": "бупка",
   "word": "бу̀пка",
   "plain": "бупка",
   "pron": "",

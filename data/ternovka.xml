@@ -25,11 +25,12 @@
                         <date when="2026"/>
                   </publicationStmt>
                   <sourceDesc>
-                        <bibl>Барболова, Зоя. Българският говор в Нилоевската Терновка.  Одеса: Симекс-принт, 2013</bibl>
+                        <bibl>Барболова, Зоя. Българският говор в Николаевската Терновка (Украйна). София, 2013</bibl>
                   </sourceDesc>
             </fileDesc>
             <revisionDesc>
          <change who="#AB" when="2026-10-08">Добавени метаданни.</change>
+         <change when="2026-10-08">Поправки по сверка с книгата (Гласник): заглавни думи в „бо“, „бички“, „бредем“; препратка #бу1 → #бу; части на речта в &lt;pos&gt; вместо &lt;gen&gt; („аби“, „арничево“, „бу“); род на „бугор“; xml:id без ударения; &lt;orth&gt; във формите на „боткина“; &lt;def&gt; в „башчеванско“; уеднаквени съкращения; заглавие и място на издаване в sourceDesc.</change>
       </revisionDesc>
       </teiHeader>
       <text>
@@ -69,7 +70,7 @@
                               <orth xml:lang="bg">абѝ</orth>
                         </form>
                         <gramGrp>
-                              <gen>нар.</gen>
+                              <pos>нар.</pos>
                         </gramGrp>
                         <sense>
                               <def xml:lang="bg">само</def>
@@ -191,7 +192,7 @@
                               <orth xml:lang="bg">алѝ</orth>
                         </form>
                         <gramGrp>
-                              <pos>conj.</pos>
+                              <pos>сз.</pos>
                         </gramGrp>
                         <sense>
                               <def xml:lang="bg">или</def>
@@ -300,7 +301,7 @@
                         </form>
                         <gramGrp>
                               <pos>прил.</pos>
-                              <subc>-а, -о, и</subc>
+                              <iType>-а, -о, -и</iType>
                         </gramGrp>
                         <sense>
                               <def xml:lang="bg">добър</def>
@@ -314,7 +315,7 @@
                               <orth xml:lang="bg">арнѝчево</orth>
                         </form>
                         <gramGrp>
-                              <gen>нар.</gen>
+                              <pos>нар.</pos>
                         </gramGrp>
                         <sense>
                               <def xml:lang="bg">добре, хубаво</def>
@@ -427,7 +428,7 @@
                               <def>народен празник на 1 март</def>
                         </sense>
                   </entry>
-                  <entry xml:id="Ба̀бен-ден">
+                  <entry xml:id="Бабен-ден">
                         <form type="lemma">
                               <orth>Ба̀бен ден</orth>
                               <gramGrp>
@@ -507,7 +508,7 @@
                         </sense>
                         <etym>укр. бала̀кам ‘говоря’</etym>
                   </entry>
-                  <entry xml:id="ба̀лка1">
+                  <entry xml:id="балка1">
                         <form type="lemma">
                               <orth>ба̀лка</orth>
                               <gramGrp>
@@ -558,7 +559,7 @@
                               </cit>
                         </sense>
                   </entry>
-                  <entry xml:id="бара̀шашки-рок">
+                  <entry xml:id="барашашки-рок">
                         <form type="lemma">
                               <orth>бара̀шашки рок</orth>
                               <gramGrp>
@@ -699,7 +700,7 @@
                                     <orth>башчева̀нско цвѐте</orth>
                               </form>
                              <form type="phrase"> <orth>башчува̀нско цвѐте</orth></form>
-                              <sense>раст. астра</sense>
+                              <sense><def>раст. астра</def></sense>
                         </entry>
                   </entry>
                   <entry xml:id="бджила">
@@ -798,10 +799,9 @@
                   </entry>
                   <entry xml:id="бички">
                         <form type="lemma">
-                              <orth>бичѐ</orth>
+                              <orth>бичкѝ</orth>
                               <gramGrp>
-                                    <gen>ж.</gen>
-                                    <number>мн.</number>
+                                                                        <number>мн.</number>
                               </gramGrp>
                         </form>
                         <sense>
@@ -871,7 +871,7 @@
                   </entry>
                   <entry xml:id="бо">
                         <form type="lemma">
-                              <orth>блъштѝ</orth>
+                              <orth>бо</orth>
                               <gramGrp>
                                     <pos>сз.</pos>
                               </gramGrp>
@@ -883,7 +883,7 @@
                               </cit>
                         </sense>
                         <xr>
-                              <ref target="#бу1"> бу1</ref>
+                              <ref target="#бу">бу</ref>
                         </xr>
                   </entry>
                   <entry xml:id="Богуродица">
@@ -891,7 +891,7 @@
                               <orth>Богуро̀дица</orth>
                               <gramGrp>
                                     <gen>ж.</gen>
-                                    <subc>соб.</subc>
+                                    <subc>собст.</subc>
                               </gramGrp>
                         </form>
                         <sense>
@@ -982,9 +982,9 @@
                               </gramGrp>
                         </form>
                         <entry>
-                              <form>бо̀ткина бо̀лес</form>
-                              <form>бо̀тхина бо̀лес</form>
-                              <form>бо̀тγина бо̀лес</form>
+                              <form type="phrase"><orth>бо̀ткина бо̀лес</orth></form>
+                              <form type="phrase"><orth>бо̀тхина бо̀лес</orth></form>
+                              <form type="phrase"><orth>бо̀тγина бо̀лес</orth></form>
                               <sense>
                                     <def>жълтеница</def>
                                     <cit type="example">
@@ -1055,7 +1055,7 @@
                         <form type="lemma">
                               <orth>брѐда</orth>
                               <gramGrp>
-                                    <subc>несв. </subc>
+                                    <subc>несв.</subc>
                               </gramGrp>
                         </form>
                         <sense>
@@ -1070,9 +1070,9 @@
                   </entry>
                   <entry xml:id="бредем">
                         <form type="lemma">
-                              <orth>брѐда</orth>
+                              <orth>брѐдем</orth>
                               <gramGrp>
-                                    <subc>несв. </subc>
+                                    <subc>несв.</subc>
                               </gramGrp>
                         </form>
                         <sense>
@@ -1090,7 +1090,7 @@
                         <form type="lemma">
                               <orth>брѐша</orth>
                               <gramGrp>
-                                    <subc>несв. </subc>
+                                    <subc>несв.</subc>
                               </gramGrp>
                         </form>
                         <sense>
@@ -1106,7 +1106,7 @@
                         <form type="lemma">
                               <orth>броса̀вам</orth>
                               <gramGrp>
-                                    <subc>несв. </subc>
+                                    <subc>несв.</subc>
                               </gramGrp>
                         </form>
                         <sense>
@@ -1184,7 +1184,7 @@
                         <form type="lemma">
                               <orth>бу</orth>
                               <gramGrp>
-                                    <gen>сз.</gen>
+                                    <pos>сз.</pos>
                               </gramGrp>
                         </form>
                         <sense n="1">
@@ -1266,7 +1266,7 @@
                         <form type="lemma">
                               <orth>буго̀р</orth>
                               <gramGrp>
-                                    <gen>ж.</gen>
+                                    <gen>м.</gen>
                               </gramGrp>
                         </form>
                         <sense>
@@ -1352,7 +1352,7 @@
                               <def>обръщение на родителите, братята и сестрите на мъжа към съпругата му</def>
                         </sense>
                   </entry>
-                  <entry xml:id="бу̀пка">
+                  <entry xml:id="бупка">
                         <form type="lemma">
                               <orth>бу̀пка</orth>
                               <gramGrp>
