@@ -18,7 +18,8 @@
     <section class="page-header">
       <div class="container">
         <h1>Речник</h1>
-        <p>Диалектна и битова лексика от говорите на банатските и бесарабските българи. Примерни речникови единици за демонстрация.</p>
+        <p>Диалектна лексика от българските говори в Банат, Бесарабия и Северното Причерноморие. Засега: речникът на Зоя Барболова за говора на Николаевска Терновка (букви А–Б), кодиран в TEI XML.</p>
+        <p class="small" id="dictionary-source"></p>
       </div>
     </section>
 
@@ -27,15 +28,15 @@
         <div class="toolbar toolbar-3">
           <div class="toolbar-search">
             <label class="field-label" for="word-search">Търсене</label>
-            <input class="input" type="search" id="word-search" placeholder="Търсене на дума…">
+            <input class="input" type="search" id="word-search" placeholder="Дума, значение или пример (без ударения)…">
           </div>
           <div>
-            <label class="field-label" for="word-region">Регион</label>
-            <select class="select" id="word-region"><option value="">Всички региони</option></select>
+            <label class="field-label" for="word-place">Населено място</label>
+            <select class="select" id="word-place"><option value="">Всички места</option></select>
           </div>
           <div>
-            <label class="field-label" for="word-tag">Етикет</label>
-            <select class="select" id="word-tag"><option value="">Всички етикети</option></select>
+            <label class="field-label" for="word-pos">Част на речта</label>
+            <select class="select" id="word-pos"><option value="">Всички</option></select>
           </div>
         </div>
 
@@ -54,6 +55,7 @@
   <div id="site-footer"></div>
 
   <script src="js/data.js"></script>
+  <script src="js/dictionary-data.js"></script>
   <script src="js/common.js"></script>
   <script src="js/dictionary.js"></script>
 </body>

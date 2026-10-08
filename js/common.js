@@ -27,8 +27,16 @@ function escapeHtml(value) {
 }
 
 // Подготвя текст за сравнение при търсене (малки букви, без излишни интервали)
+// Малки букви и без ударения/диакритици: „абѐдня“ → „абедня“
+// (без U+0306, за да остане „й“ различно от „и“).
+// Така търсенето намира диалектните думи и без да се пишат ударенията.
 function normalize(value) {
-  return String(value || "").toLowerCase().trim();
+  return String(value || "")
+    .normalize("NFD")
+    .replace(/[\u0300-\u0305\u0307-\u036f]/g, "")
+    .normalize("NFC")
+    .toLowerCase()
+    .trim();
 }
 
 // Проверява дали някое от полетата съдържа търсения текст
@@ -40,15 +48,40 @@ function matchesQuery(fields, query) {
   });
 }
 
-// Огражда намерения текст с <mark>…</mark>
+// Огражда намерения текст с <mark>…</mark>.
+// Сравнява без ударения, но маркира оригиналния текст с ударенията.
 function highlight(text, query) {
-  const safeText = escapeHtml(text);
-  const q = String(query || "").trim();
-  if (q === "") return safeText;
+  const original = String(text || "");
+  const q = normalize(query).normalize("NFD");
+  if (q === "") return escapeHtml(original);
 
-  const safeQuery = escapeHtml(q).replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
-  const pattern = new RegExp("(" + safeQuery + ")", "gi");
-  return safeText.replace(pattern, "<mark>$1</mark>");
+  // Текст без ударения + позицията на всяка буква в оригинала
+  const decomposed = original.normalize("NFD");
+  let plain = "";
+  const map = [];
+  for (let i = 0; i < decomposed.length; i++) {
+    if (/[\u0300-\u0305\u0307-\u036f]/.test(decomposed[i])) continue;
+    plain += decomposed[i].toLowerCase();
+    map.push(i);
+  }
+
+  let result = "";
+  let last = 0;
+  let from = 0;
+  let found;
+  while (q && (found = plain.indexOf(q, from)) !== -1) {
+    // „мои“ не трябва да маркира половин „й“
+    if (plain[found + q.length] === "\u0306") { from = found + 1; continue; }
+    const start = map[found];
+    const endIndex = found + q.length;
+    const end = endIndex < map.length ? map[endIndex] : decomposed.length;
+    result += escapeHtml(decomposed.slice(last, start)) +
+              "<mark>" + escapeHtml(decomposed.slice(start, end)) + "</mark>";
+    last = end;
+    from = endIndex;
+  }
+  result += escapeHtml(decomposed.slice(last));
+  return result.normalize("NFC");
 }
 
 // Превръща година във век с римски цифри: 1898 → "XIX"

@@ -60,3 +60,17 @@ tools/              Скрипт за превръщане на Zotero CSV в js
 
 Линковете към пълни текстове, които ги няма в Zotero, се пазят в `tools/extra_links.json`
 и се добавят автоматично при всяко генериране на `js/sources.js`.
+
+## Речник (TEI XML)
+
+Речникът се пази като TEI XML в `data/` (засега `data/ternovka.xml`, З. Барболова, TEI: А. Бояджиев, CC BY-SA 4.0).
+Сайтът не чете XML директно, а генериран файл `js/dictionary-data.js`:
+
+```bash
+python3 tools/tei_dictionary_to_js.py data/ternovka.xml js/dictionary-data.js "Терновка"
+```
+
+(нужен е `pip install lxml`). Скриптът извежда предупреждения за препратки към още невъведени статии.
+
+`xslt/glasnik-dictionary.xsl` е XSLT 1.0 за eXist-db/xsltproc, който дава чист HTML с класовете на сайта
+(параметри `standalone`, `css`, `entry`).

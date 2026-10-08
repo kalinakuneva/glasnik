@@ -129,12 +129,15 @@ function renderCommunityDetail(community) {
              '<span class="muted small">' + escapeHtml(a.type + " · " + a.year + " · " + a.signature) + '</span></li>';
     });
 
-  const relatedWords = dictionary
-    .filter(function (d) { return d.place === community.name; })
-    .map(function (d) {
-      return '<li><a href="dictionary.html?word=' + encodeURIComponent(d.word) + '">' + escapeHtml(d.word) + '</a>' +
-             '<span class="muted small">' + escapeHtml(d.meaning) + '</span></li>';
-    });
+  const placeWords = dictionary.filter(function (d) { return d.place === community.name; });
+  const relatedWords = placeWords.slice(0, 8).map(function (d) {
+    return '<li><a href="dictionary.html?word=' + encodeURIComponent(d.id) + '">' + escapeHtml(d.word) + '</a>' +
+           '<span class="muted small">' + escapeHtml(d.meaning) + '</span></li>';
+  });
+  if (placeWords.length > 8) {
+    relatedWords.push('<li><a href="dictionary.html?place=' + encodeURIComponent(community.name) + '">Всички ' +
+                      placeWords.length + ' думи в речника →</a></li>');
+  }
 
   detailView.innerHTML =
     '<section class="page-header">' +

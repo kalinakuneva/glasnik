@@ -40,7 +40,7 @@ const usedOffsets = {}; // брояч „място + тип“ → колко �
 
 const mapItems = [];
 
-function addMapItem(kind, name, placeName, region, centuries, popupContent) {
+function addMapItem(kind, name, placeName, region, centuries, popupContent, searchText) {
   const community = findCommunityByName(placeName);
   if (!community) return; // ако мястото го няма в communities, пропускаме
 
@@ -63,6 +63,7 @@ function addMapItem(kind, name, placeName, region, centuries, popupContent) {
   mapItems.push({
     kind: kind,
     name: name,
+    searchText: searchText || name,
     region: region,
     centuries: centuries,
     latlng: [lat, lng],
@@ -112,15 +113,24 @@ archiveItems.forEach(function (a) {
   ));
 });
 
-// Речник (думите нямат период — затова centuries е празен масив
-// и те не се скриват от филтъра „Период“)
+// Речник — по един маркер за всяко населено място (думите нямат период,
+// затова centuries е празен масив и не се скриват от филтъра „Период“)
+const dictionaryByPlace = {};
 dictionary.forEach(function (d) {
-  addMapItem("dictionary", d.word, d.place, d.region, [], popupHtml(
-    d.word,
-    "Речник · " + d.partOfSpeech + " · " + d.place,
-    d.meaning,
-    popupButton("dictionary.html?word=" + encodeURIComponent(d.word), "Отвори в речника", true)
-  ));
+  if (!dictionaryByPlace[d.place]) dictionaryByPlace[d.place] = [];
+  dictionaryByPlace[d.place].push(d);
+});
+
+Object.keys(dictionaryByPlace).forEach(function (place) {
+  const words = dictionaryByPlace[place];
+  const sample = words.slice(0, 6).map(function (d) { return d.word; }).join(", ");
+  addMapItem("dictionary", "Речник: " + place,
+    place, words[0].region, [], popupHtml(
+      "Речник на говора: " + place,
+      "Речник · " + words.length + " статии",
+      "Напр. " + sample + "…",
+      popupButton("dictionary.html?place=" + encodeURIComponent(place), "Отвори речника", true)
+    ), "Речник: " + place + " " + words.map(function (d) { return d.word + " " + d.meaning; }).join(" "));
 });
 
 
@@ -188,7 +198,7 @@ function showSearchResults() {
 
   // Първо общностите, после останалите материали
   currentResults = mapItems.filter(function (item) {
-    return matchesQuery([item.name], query);
+    return matchesQuery([item.searchText], query);
   }).slice(0, 8);
 
   if (currentResults.length === 0) {

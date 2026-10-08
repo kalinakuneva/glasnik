@@ -1580,3 +1580,93 @@ button.tag:hover {
   font-variant-ligatures: no-common-ligatures;
   font-kerning: normal;
 }
+
+
+/* =========================================================
+   РЕЧНИК (TEI)
+   Същите класове се използват от xslt/glasnik-dictionary.xsl
+   ========================================================= */
+.word-list {
+  max-height: 70vh;
+  overflow-y: auto;
+  position: relative;
+}
+
+.word-list .word-pos {
+  font-size: 0.8rem;
+  font-style: italic;
+  color: var(--text-muted);
+}
+
+.word-list .word-short {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.dict-pron { font-style: normal; color: var(--green-dark); }
+.dict-variants { color: var(--text-muted); margin-bottom: 12px; }
+
+.dict-senses {
+  padding-left: 1.6em;
+  margin: 0 0 20px;
+}
+.dict-senses.single { list-style: none; padding-left: 0; }
+.dict-senses > li { margin-bottom: 14px; }
+.dict-senses > li::marker { font-weight: 700; color: var(--green-dark); }
+
+.dict-hom { font-weight: 700; color: var(--green-dark); }
+.dict-label { font-style: italic; color: var(--text-muted); }
+.dict-def { font-size: 1.05rem; }
+
+.dict-examples {
+  list-style: none;
+  padding: 0;
+  margin: 8px 0 0;
+}
+.dict-examples li {
+  font-family: var(--font-heading);
+  font-style: italic;
+  background: var(--background);
+  border-left: 3px solid var(--green);
+  padding: 8px 14px;
+  margin-bottom: 6px;
+  border-radius: 0 var(--radius-small) var(--radius-small) 0;
+  font-variant-ligatures: no-common-ligatures;
+}
+
+.dict-phrases dt {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  color: var(--green-dark);
+  margin-top: 10px;
+}
+.dict-phrases dd { margin: 4px 0 0 1.2em; }
+
+.dict-see { margin: 6px 0; }
+.dict-xr { font-family: var(--font-heading); }
+.dict-xr-missing { color: var(--text-muted); border-bottom: 1px dotted var(--text-muted); cursor: help; }
+.dict-etym { color: var(--text-muted); }
+.dict-meta { margin-top: 20px; font-size: 0.9rem; }
+
+.entry-word,
+.word-list .word,
+.dict-phrases dt,
+.dict-xr {
+  font-variant-ligatures: no-common-ligatures;
+}
+
+/* Изход от xslt/glasnik-dictionary.xsl (eXist) */
+.glasnik-dictionary .dict-header { margin-bottom: 24px; }
+.glasnik-dictionary .dict-source { color: var(--text-muted); }
+.dict-entry { margin-bottom: 20px; }
+.dict-entry .entry-word { font-size: 1.8rem; }
+.dict-gram { text-decoration: none; font-style: italic; }
+.dict-hom-block { margin-bottom: 12px; }
+
+/* Дългите значения в списъка не трябва да разширяват колоната */
+.dictionary-layout > * { min-width: 0; }
+
+@media (max-width: 900px) {
+  .word-list { max-height: 45vh; }
+}
