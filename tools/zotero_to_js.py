@@ -34,7 +34,7 @@ doi_count = Counter(r["DOI"] for r in rows if r["DOI"])
 
 def topic(r, text):
     t = text.lower()
-    if re.search(r"бесараб|bessarab|болград|bolhrad|bolgrad|варзопов|табак|chișinău", t):
+    if re.search(r"бесараб|bessarab|болград|bolhrad|bolgrad|варзопов|табак|chișinău|украй|україн|болгарськ|болгарск|бессараб|заря|зоря|терновка|кубей|кирнички|переселен", t):
         return "Бесарабия"
     if re.search(r"банат|banat|седмиград|temisvar|\brill\b|berecz", t):
         return "Банат"
@@ -44,6 +44,7 @@ def places(text):
     t = text.lower()
     p = []
     if re.search(r"болград|bolhrad|bolgrad", t): p.append("Болград")
+    if re.search(r"терновка|тернівка", t): p.append("Терновка")
     if re.search(r"temisvar", t): p.append("Тимишоара")
     return p
 
@@ -64,7 +65,7 @@ for r in rows:
         warnings.append(f'{r["Key"]} „{title[:60]}“: резюмето и DOI са копирани от друг запис')
         abstract, doi, url = "", "", ""
     # Ако DOI-то не работи, го скриваме и показваме линка от extra_links.json
-    if any(link.get("replacesDoi") for link in extra_links.get(r["Key"], [])):
+    if r["Key"] in extra_links.get("_hideDoi", []) or any(link.get("replacesDoi") for link in extra_links.get(r["Key"], [])):
         doi = ""
     tags = [clean(t) for t in (r["Manual Tags"] or "").split(";") if clean(t)]
     alltext = " ".join([title, r["Publication Title"], r["Place"], r["Publisher"], extra, " ".join(tags), r["Author"]])
