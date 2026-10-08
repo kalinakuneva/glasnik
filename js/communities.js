@@ -189,11 +189,7 @@ function renderCommunityDetail(community) {
   if (typeof L !== "undefined") {
     const miniMap = L.map("mini-map", { scrollWheelZoom: false })
       .setView([community.latitude, community.longitude], 8);
-    L.tileLayer("https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png", {
-      maxZoom: 19,
-      subdomains: "abcd",
-      attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> &copy; <a href="https://carto.com/attributions">CARTO</a>'
-    }).addTo(miniMap);
+    addBaseMap(miniMap);
     L.circleMarker([community.latitude, community.longitude], {
       radius: 9, color: "#FFFFFF", weight: 2, fillColor: "#2F7D55", fillOpacity: 0.95
     }).addTo(miniMap);

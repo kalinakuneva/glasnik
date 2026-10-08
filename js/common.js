@@ -138,6 +138,36 @@ function formatCitation(source) {
 }
 
 
+/* ---------- Подложка на картите (обща за всички карти) ---------- */
+
+// Основни карти: Esri World Street Map (без API ключ).
+// Ако не се заредят (напр. услугата е недостъпна), след няколко грешки
+// автоматично се превключва на OpenStreetMap.
+function addBaseMap(map) {
+  const esri = L.tileLayer(
+    "https://server.arcgisonline.com/ArcGIS/rest/services/World_Street_Map/MapServer/tile/{z}/{y}/{x}",
+    {
+      maxZoom: 18,
+      attribution: 'Карта &copy; <a href="https://www.esri.com/">Esri</a>, данни &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+    }
+  );
+  const osm = L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
+    maxZoom: 18,
+    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+  });
+
+  let errors = 0;
+  esri.on("tileerror", function () {
+    errors++;
+    if (errors === 3 && map.hasLayer(esri)) {
+      map.removeLayer(esri);
+      osm.addTo(map);
+    }
+  });
+  esri.addTo(map);
+}
+
+
 /* ---------- Икони (прост inline SVG, без външни библиотеки) ---------- */
 
 const icons = {

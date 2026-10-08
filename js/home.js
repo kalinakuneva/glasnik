@@ -23,11 +23,7 @@ if (typeof L !== "undefined") {
     attributionControl: true
   }).setView([45.4, 24.8], 5);
 
-  L.tileLayer("https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png", {
-    maxZoom: 19,
-    subdomains: "abcd",
-    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> &copy; <a href="https://carto.com/attributions">CARTO</a>'
-  }).addTo(previewMap);
+  addBaseMap(previewMap);
 
   communities.forEach(function (community) {
     L.circleMarker([community.latitude, community.longitude], {
