@@ -230,7 +230,7 @@ function renderHeader() {
     '<header class="site-header">' +
       '<div class="container header-inner">' +
         '<a class="brand" href="index.html" aria-label="Гласник — начало">' +
-          '<span class="brand-icon">' + icons.leaf + '</span>' +
+          '<img class="brand-logo" src="assets/images/logo.png" width="60" height="60" alt="Лого на конференцията „Бесарабски и банатски българи в исторически и съвременен контекст“ (2026)">' +
           '<span class="brand-text">' +
             '<span class="brand-name">Гласник</span>' +
             '<span class="brand-tagline">Дигитална платформа за банатските и бесарабските българи</span>' +

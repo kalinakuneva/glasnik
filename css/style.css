@@ -19,8 +19,10 @@
   --marker-archive: #C2691B;
   --marker-dictionary: #7B4BA8;
 
-  --font-heading: Georgia, "Times New Roman", serif;
-  --font-ui: Arial, Helvetica, sans-serif;
+  /* Noto поддържа кирилица, латиница и комбиниращите диакритични знаци
+     (Combining Diacritical Marks, U+0300–036F) — нужни за диалектните текстове. */
+  --font-heading: "Noto Serif", Georgia, "Times New Roman", serif;
+  --font-ui: "Noto Sans", Arial, Helvetica, sans-serif;
 
   --radius: 10px;
   --radius-small: 6px;
@@ -407,20 +409,11 @@ button.tag:hover {
   flex-shrink: 0;
 }
 
-.brand-icon {
-  width: 40px;
-  height: 40px;
+.brand-logo {
+  width: 60px;
+  height: 60px;
+  flex-shrink: 0;
   border-radius: 50%;
-  background: var(--green-light);
-  color: var(--green-dark);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.brand-icon svg {
-  width: 22px;
-  height: 22px;
 }
 
 .brand-text {
@@ -1564,6 +1557,7 @@ button.tag:hover {
   .container { padding: 0 16px; }
   .section { padding: 40px 0; }
   .brand-tagline { display: none; }
+  .brand-logo { width: 48px; height: 48px; }
   .lang { display: none; }
   .hero h1 { font-size: 1.9rem; }
   .grid-4,
@@ -1574,4 +1568,15 @@ button.tag:hover {
   .page-header { padding: 28px 0 24px; }
   .entry-word { font-size: 2rem; }
   .footer-links { flex-wrap: wrap; }
+}
+
+
+/* Текстове с диалектни диакритики: изключваме изкуствените лигатури,
+   за да не се „слепват“ комбиниращите знаци. */
+.excerpt,
+.entry-word,
+.entry-example,
+.transcription {
+  font-variant-ligatures: no-common-ligatures;
+  font-kerning: normal;
 }
