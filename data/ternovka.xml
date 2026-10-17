@@ -31,6 +31,7 @@
             <revisionDesc>
          <change who="#AB" when="2026-10-08">Добавени метаданни.</change>
          <change when="2026-10-08">Поправки по сверка с книгата (Гласник): заглавни думи в „бо“, „бички“, „бредем“; препратка #бу1 → #бу; части на речта в &lt;pos&gt; вместо &lt;gen&gt; („аби“, „арничево“, „бу“); род на „бугор“; xml:id без ударения; &lt;orth&gt; във формите на „боткина“; &lt;def&gt; в „башчеванско“; уеднаквени съкращения; заглавие в sourceDesc.</change>
+         <change when="2026-10-17">Добавени буквите В и Г (72 статии) по изданието; чакат сверка.</change>
       </revisionDesc>
       </teiHeader>
       <text>
@@ -1438,6 +1439,940 @@
                         </sense>
                   </entry>
            
+                  <entry xml:id="важен">
+                        <form type="lemma">
+                              <orth>ва̀жен</orth>
+                              <gramGrp>
+                                    <pos>прил.</pos>
+                                    <iType>-а, о, и</iType>
+                              </gramGrp>
+                        </form>
+                        <sense>
+                              <def>добър, хубав, качествен</def>
+                              <cit type="example">
+                                    <quote>Той не сѝлно ва̀жен, брашно̀то не йе ва̀жно.</quote>
+                              </cit>
+                        </sense>
+                  </entry>
+                  <entry xml:id="вазоле">
+                        <form type="lemma">
+                              <orth>вазо̀ле</orth>
+                              <gramGrp>
+                                    <number>мн.</number>
+                              </gramGrp>
+                        </form>
+                        <sense>
+                              <def>дръжка на съд</def>
+                        </sense>
+                        <entry type="phrase">
+                              <form type="phrase">
+                                    <orth>вазо̀ле на съ̀довете</orth>
+                              </form>
+                              <sense>
+                              </sense>
+                        </entry>
+                        <etym>&lt; рус. вазо̀не</etym>
+                  </entry>
+                  <entry xml:id="валки">
+                        <form type="lemma">
+                              <orth>вал’кѝ</orth>
+                              <gramGrp>
+                                    <number>pl.t.</number>
+                              </gramGrp>
+                        </form>
+                        <sense>
+                              <def>глина смесена със слама, която се използва в строителството</def>
+                        </sense>
+                  </entry>
+                  <entry xml:id="валкувам">
+                        <form type="lemma">
+                              <orth>валку̀вам</orth>
+                              <gramGrp>
+                                    <subc>несв.</subc>
+                              </gramGrp>
+                        </form>
+                        <sense>
+                              <def>мажа с вал‘ки</def>
+                              <cit type="example">
+                                    <quote>Валку̀ват, глѝна със сла̀ма, чарвѐна пръс и сла̀ма, с кунѐте йа ме̂̀сет, с крака̀та и валку̀ват тава̀но кът са стро̀и.</quote>
+                              </cit>
+                        </sense>
+                  </entry>
+                  <entry xml:id="вапцан">
+                        <form type="lemma">
+                              <orth>ва̀пцан</orth>
+                              <gramGrp>
+                                    <pos>прич.</pos>
+                                    <iType>-а, -о, -и</iType>
+                              </gramGrp>
+                        </form>
+                        <sense>
+                              <def>обагрен, боядисан</def>
+                        </sense>
+                  </entry>
+                  <entry xml:id="вапцувам">
+                        <form type="lemma">
+                              <orth>вапцу̀вам</orth>
+                              <gramGrp>
+                                    <subc>несв.</subc>
+                              </gramGrp>
+                        </form>
+                        <sense>
+                              <def>багря, боядисвам</def>
+                              <cit type="example">
+                                    <quote>вапцу̀ваме йа̀йца.</quote>
+                              </cit>
+                        </sense>
+                  </entry>
+                  <entry xml:id="варам">
+                        <form type="lemma">
+                              <orth>ва̀рам</orth>
+                              <gramGrp>
+                                    <subc>несв.</subc>
+                              </gramGrp>
+                        </form>
+                        <sense>
+                              <def>бързам</def>
+                              <cit type="example">
+                                    <quote>Ма̀ма ке до̀йде и йас ке ва̀рам, ке о̀перам, ке на̀права одолжѐние на ма̀ма.</quote>
+                              </cit>
+                        </sense>
+                  </entry>
+                  <entry xml:id="варда">
+                        <form type="lemma">
+                              <orth>ва̀рда</orth>
+                              <gramGrp>
+                                    <subc>несв.</subc>
+                              </gramGrp>
+                        </form>
+                        <sense>
+                              <def>пази</def>
+                              <cit type="example">
+                                    <quote>Низна̀йе кой да оста̀й да ги ва̀рди.</quote>
+                              </cit>
+                        </sense>
+                  </entry>
+                  <entry xml:id="варелче">
+                        <form type="lemma">
+                              <orth>варѐл’че</orth>
+                              <gramGrp>
+                                    <gen>ср.</gen>
+                              </gramGrp>
+                        </form>
+                        <sense>
+                              <def>малко буре с поставка и вместимост от 20 л.</def>
+                        </sense>
+                  </entry>
+                  <entry xml:id="Василев-ден">
+                        <form type="lemma">
+                              <orth>Васѝлев ден</orth>
+                              <gramGrp>
+                                    <subc>съч.</subc>
+                              </gramGrp>
+                        </form>
+                        <sense>
+                              <def>денят след Старата Нова година – 15 януари</def>
+                        </sense>
+                  </entry>
+                  <entry xml:id="ватка">
+                        <form type="lemma">
+                              <orth>ва̀тка</orth>
+                              <gramGrp>
+                                    <gen>ж.</gen>
+                              </gramGrp>
+                        </form>
+                        <sense>
+                              <def>памук</def>
+                              <cit type="example">
+                                    <quote>Чѝстейме ва̀тка.</quote>
+                              </cit>
+                        </sense>
+                  </entry>
+                  <entry xml:id="ведро">
+                        <form type="lemma">
+                              <orth>ведро̀</orth>
+                              <gramGrp>
+                                    <gen>м.</gen>
+                              </gramGrp>
+                        </form>
+                        <sense>
+                              <def>кофа</def>
+                        </sense>
+                  </entry>
+                  <entry xml:id="век">
+                        <form type="lemma">
+                              <orth>век</orth>
+                              <gramGrp>
+                                    <gen>м.</gen>
+                              </gramGrp>
+                        </form>
+                        <sense>
+                              <def>времето, през което живея, съществувам; по мое време; по време на моя живот</def>
+                              <cit type="example">
+                                    <quote>Има̀ тако̀й слу̀чай на мо̀йа век.</quote>
+                              </cit>
+                              <cit type="example">
+                                    <quote>Си прожив’а̀ва веко̀ с д’а̀до Алѐксо.</quote>
+                              </cit>
+                        </sense>
+                  </entry>
+                  <entry xml:id="Велики-пости">
+                        <form type="lemma">
+                              <orth>Велики пости</orth>
+                              <gramGrp>
+                                    <subc>съч.</subc>
+                              </gramGrp>
+                        </form>
+                        <sense>
+                              <def>Великденските пости</def>
+                        </sense>
+                  </entry>
+                  <entry xml:id="венчила">
+                        <form type="lemma">
+                              <orth>венчѝла</orth>
+                              <gramGrp>
+                                    <number>мн.</number>
+                              </gramGrp>
+                        </form>
+                        <sense>
+                              <def>метални корони, които се слагат на главите на младоженците при венчаване в черквата</def>
+                        </sense>
+                  </entry>
+                  <entry xml:id="верувам">
+                        <form type="lemma">
+                              <orth>веру̀вам</orth>
+                              <gramGrp>
+                                    <subc>несв.</subc>
+                              </gramGrp>
+                        </form>
+                        <sense>
+                              <def>вярвам</def>
+                              <cit type="example">
+                                    <quote>Той не веру̀ва, орту̀ва гре̂х.</quote>
+                              </cit>
+                              <cit type="example">
+                                    <quote>Дѐдото веру̀ва.</quote>
+                              </cit>
+                        </sense>
+                  </entry>
+                  <entry xml:id="ветрушка">
+                        <form type="lemma">
+                              <orth>ветру̀шка</orth>
+                              <gramGrp>
+                                    <gen>ж.</gen>
+                              </gramGrp>
+                        </form>
+                        <sense>
+                              <def>вихрушка</def>
+                        </sense>
+                  </entry>
+                  <entry xml:id="вечерница">
+                        <form type="lemma">
+                              <orth>вечѐрница</orth>
+                              <gramGrp>
+                                    <gen>ж.</gen>
+                              </gramGrp>
+                        </form>
+                        <sense>
+                              <def>вид градинско цвете, на вид подобно на малко дърво с много цветове – червени или жълти, подобни на фунийки, които се разтварят вечер; връзват черни семена</def>
+                        </sense>
+                  </entry>
+                  <entry xml:id="вида">
+                        <form type="lemma">
+                              <orth>вѝда</orth>
+                              <form type="variant">
+                                    <orth>вѝдам</orth>
+                              </form>
+                              <gramGrp>
+                                    <subc>несв.</subc>
+                              </gramGrp>
+                        </form>
+                        <sense>
+                              <def>виждам</def>
+                              <cit type="example">
+                                    <quote>Като ми умрѐ жена̀та, зе да не чу̀вам, и да не вѝдам, ама ча̀шката а вѝда.</quote>
+                              </cit>
+                        </sense>
+                  </entry>
+                  <entry xml:id="вилка">
+                        <form type="lemma">
+                              <orth>вѝлка</orth>
+                              <gramGrp>
+                                    <gen>ж.</gen>
+                              </gramGrp>
+                        </form>
+                        <sense>
+                              <def>вилица</def>
+                        </sense>
+                  </entry>
+                  <entry xml:id="винуват">
+                        <form type="lemma">
+                              <orth>винува̀т</orth>
+                              <gramGrp>
+                                    <pos>прил.</pos>
+                              </gramGrp>
+                        </form>
+                        <sense>
+                              <def>виновен</def>
+                        </sense>
+                  </entry>
+                  <entry xml:id="винчувам-са">
+                        <form type="lemma">
+                              <orth>винчу̀вам са</orth>
+                              <gramGrp>
+                                    <subc>несв.</subc>
+                              </gramGrp>
+                        </form>
+                        <sense>
+                              <def>венчавам се</def>
+                              <cit type="example">
+                                    <quote>Йас ни са винчува̀х.</quote>
+                              </cit>
+                        </sense>
+                  </entry>
+                  <entry xml:id="вичерня">
+                        <form type="lemma">
+                              <orth>вичѐрня</orth>
+                              <pron>вичѐрн’а</pron>
+                        </form>
+                        <sense>
+                              <def>вечерна служба в черквата</def>
+                              <cit type="example">
+                                    <quote>По̀сле вичѐрн’ата ба̀т’ушката испувѐдува и си връвѝш до̀ма.</quote>
+                              </cit>
+                        </sense>
+                  </entry>
+                  <entry xml:id="вичиринка">
+                        <form type="lemma">
+                              <orth>вичирѝнка</orth>
+                              <gramGrp>
+                                    <gen>ж.</gen>
+                              </gramGrp>
+                        </form>
+                        <sense>
+                              <def>вечерна забава с музика и танци в клуба</def>
+                        </sense>
+                  </entry>
+                  <entry xml:id="влакно">
+                        <form type="lemma">
+                              <orth>влакно̀</orth>
+                              <gramGrp>
+                                    <gen>м.</gen>
+                              </gramGrp>
+                        </form>
+                        <sense>
+                              <def>нишка при предене на вълна или памук</def>
+                        </sense>
+                  </entry>
+                  <entry xml:id="воденица">
+                        <form type="lemma">
+                              <orth>воденѝца</orth>
+                              <gramGrp>
+                                    <gen>ж.</gen>
+                              </gramGrp>
+                        </form>
+                        <sense>
+                              <def>вятърна мелница</def>
+                              <cit type="example">
+                                    <quote>Воденѝци – на ве̂̀тер са кру̀тейа.</quote>
+                              </cit>
+                        </sense>
+                  </entry>
+                  <entry xml:id="врапка">
+                        <form type="lemma">
+                              <orth>вра̀пка</orth>
+                              <gramGrp>
+                                    <gen>ж.</gen>
+                              </gramGrp>
+                        </form>
+                        <sense>
+                              <def>врабче</def>
+                        </sense>
+                  </entry>
+                  <entry xml:id="вреден">
+                        <form type="lemma">
+                              <orth>врѐден</orth>
+                              <gramGrp>
+                                    <pos>прил.</pos>
+                                    <gen>ж.</gen>
+                                    <iType>-а, -о, -и</iType>
+                              </gramGrp>
+                        </form>
+                        <sense>
+                              <def>работна</def>
+                        </sense>
+                  </entry>
+                  <entry xml:id="вроде">
+                        <form type="lemma">
+                              <orth>вро̀де</orth>
+                              <gramGrp>
+                                    <pos>нар.</pos>
+                              </gramGrp>
+                        </form>
+                        <sense>
+                              <def>навярно, изглежда, като че ли</def>
+                              <cit type="example">
+                                    <quote>И во̀т ту̀рките са зѐли зарова̀ли там вро̀де то зо̀лото.</quote>
+                              </cit>
+                        </sense>
+                  </entry>
+                  <entry xml:id="връѕуват-кумо">
+                        <form type="lemma">
+                              <orth>връѕу̀ват кумо̀</orth>
+                              <gramGrp>
+                                    <subc>съч.</subc>
+                              </gramGrp>
+                        </form>
+                        <sense>
+                              <def>даруването на кума и кумата по време на сватбата</def>
+                        </sense>
+                  </entry>
+                  <entry xml:id="вуйна">
+                        <form type="lemma">
+                              <orth>ву̀йна</orth>
+                              <gramGrp>
+                                    <gen>ж.</gen>
+                              </gramGrp>
+                        </form>
+                        <sense>
+                              <def>съпругата на брата на майка ми</def>
+                              <cit type="example">
+                                    <quote>Ма̀минийо брат, той ми йе ву̀йчо, па жена̀та му ми йе ву̀йна.</quote>
+                              </cit>
+                        </sense>
+                  </entry>
+                  <entry xml:id="вуйно">
+                        <form type="lemma">
+                              <orth>ву̀йно</orth>
+                              <gramGrp>
+                                    <gen>м.</gen>
+                              </gramGrp>
+                        </form>
+                        <sense>
+                              <def>вуйчо и обръщ. към него</def>
+                              <xr type="synonym">= <ref target="#вуйчо">вуйчо</ref></xr>
+                              <cit type="example">
+                                    <quote>На ма̀йката бра̀то, дитѐто трѐба да му ду̀ма ву̀йно.</quote>
+                              </cit>
+                        </sense>
+                  </entry>
+                  <entry xml:id="вуйчо">
+                        <form type="lemma">
+                              <orth>ву̀йчо</orth>
+                              <gramGrp>
+                                    <gen>м.</gen>
+                              </gramGrp>
+                        </form>
+                        <sense>
+                              <def>братът на майка ми</def>
+                              <cit type="example">
+                                    <quote>Ке у̀проса у ву̀йчо.</quote>
+                              </cit>
+                              <xr>Вж. <ref target="#вуйно">вуйно</ref></xr>
+                        </sense>
+                  </entry>
+                  <entry xml:id="вуркузун">
+                        <form type="lemma">
+                              <orth>вуркузу̀н</orth>
+                              <gramGrp>
+                                    <gen>м.</gen>
+                              </gramGrp>
+                        </form>
+                        <sense>
+                              <def>пискюл, който висел на мъжкия пояс</def>
+                        </sense>
+                  </entry>
+                  <entry xml:id="въглишта">
+                        <form type="lemma">
+                              <orth>въ̀глишта</orth>
+                              <gramGrp>
+                                    <number>Pl.t.</number>
+                              </gramGrp>
+                        </form>
+                        <sense>
+                              <def>въглени</def>
+                        </sense>
+                  </entry>
+                  <entry xml:id="въжак">
+                        <form type="lemma">
+                              <orth>въжа̀к</orth>
+                              <gramGrp>
+                                    <gen>м.</gen>
+                              </gramGrp>
+                        </form>
+                        <sense>
+                              <def>мъжко животно – водач на стадо</def>
+                        </sense>
+                  </entry>
+                  <entry xml:id="вълченце">
+                        <form type="lemma">
+                              <orth>вълчѐнце</orth>
+                              <gramGrp>
+                                    <gen>ср.</gen>
+                                    <subc>умал.</subc>
+                              </gramGrp>
+                        </form>
+                        <sense>
+                              <def>вълче</def>
+                        </sense>
+                  </entry>
+                  <entry xml:id="въстребник">
+                        <form type="lemma">
+                              <orth>въ̀стребник</orth>
+                              <gramGrp>
+                                    <gen>м.</gen>
+                              </gramGrp>
+                        </form>
+                        <sense>
+                              <def>покривка за одър или легло</def>
+                              <cit type="example">
+                                    <quote>Въ̀стребник за скамѐйка.</quote>
+                              </cit>
+                        </sense>
+                  </entry>
+                  <entry xml:id="галетки">
+                        <form type="lemma">
+                              <orth>галѐтки</orth>
+                              <gramGrp>
+                                    <number>мн.</number>
+                              </gramGrp>
+                        </form>
+                        <sense>
+                              <def>вид сладки; бисквити</def>
+                        </sense>
+                  </entry>
+                  <entry xml:id="гарагашка">
+                        <form type="lemma">
+                              <orth>гарага̀шка</orth>
+                              <gramGrp>
+                                    <gen>ж.</gen>
+                              </gramGrp>
+                        </form>
+                        <sense>
+                              <def>сврака</def>
+                        </sense>
+                  </entry>
+                  <entry xml:id="гаче">
+                        <form type="lemma">
+                              <orth>га̀че</orth>
+                              <form type="variant">
+                                    <orth>гачѝ</orth>
+                              </form>
+                              <gramGrp>
+                                    <pos>нар.</pos>
+                              </gramGrp>
+                        </form>
+                        <sense>
+                              <def>като че ли; сякаш</def>
+                              <cit type="example">
+                                    <quote>Сѝчо дръ̀вено бѝше, туга̀фка желе̂̀зо га̀че и не̂̀маше; йас не по̀мна такъу.</quote>
+                              </cit>
+                              <cit type="example">
+                                    <quote>гачѝ сфо̀йу</quote>
+                              </cit>
+                              <cit type="example">
+                                    <quote>Гачѝ гу нема̀.</quote>
+                              </cit>
+                        </sense>
+                  </entry>
+                  <entry xml:id="гашоглаф">
+                        <form type="lemma">
+                              <orth>гашогла̀ф</orth>
+                              <gramGrp>
+                                    <pos>прил.</pos>
+                                    <iType>-а, -о, -и</iType>
+                              </gramGrp>
+                        </form>
+                        <sense>
+                              <def>гологлав</def>
+                              <cit type="example">
+                                    <quote>Жена̀та гашогла̀ва нѝкой път не о̀ди.</quote>
+                              </cit>
+                        </sense>
+                  </entry>
+                  <entry xml:id="гердан">
+                        <form type="lemma">
+                              <orth>герда̀н</orth>
+                              <gramGrp>
+                                    <gen>м.</gen>
+                              </gramGrp>
+                        </form>
+                        <sense>
+                              <def>женски накит, който се носи на шията</def>
+                        </sense>
+                  </entry>
+                  <entry xml:id="гивеч">
+                        <form type="lemma">
+                              <orth>гивѐч</orth>
+                              <gramGrp>
+                                    <gen>м.</gen>
+                              </gramGrp>
+                        </form>
+                        <sense>
+                              <def>дълбока яма, в която се съхраняват зърнени храни</def>
+                        </sense>
+                  </entry>
+                  <entry xml:id="гирданче">
+                        <form type="lemma">
+                              <orth>гирда̀нче</orth>
+                              <gramGrp>
+                                    <gen>ср.</gen>
+                              </gramGrp>
+                        </form>
+                        <sense>
+                              <def>верижка или кожена ивица за врата на куче</def>
+                        </sense>
+                  </entry>
+                  <entry xml:id="глава-се">
+                        <form type="lemma">
+                              <orth>гла̀ва се</orth>
+                              <gramGrp>
+                                    <subc>несв.</subc>
+                              </gramGrp>
+                        </form>
+                        <sense>
+                              <def>женя се</def>
+                        </sense>
+                  </entry>
+                  <entry xml:id="главен">
+                        <form type="lemma">
+                              <orth>главѐн</orth>
+                              <gramGrp>
+                                    <pos>прич.</pos>
+                                    <iType>-а</iType>
+                              </gramGrp>
+                        </form>
+                        <sense>
+                              <def>сгоден, женен</def>
+                        </sense>
+                  </entry>
+                  <entry xml:id="главеник">
+                        <form type="lemma">
+                              <orth>главенѝк</orth>
+                              <gramGrp>
+                                    <gen>м.</gen>
+                              </gramGrp>
+                        </form>
+                        <sense>
+                              <def>годеник</def>
+                        </sense>
+                  </entry>
+                  <entry xml:id="главеница">
+                        <form type="lemma">
+                              <orth>главенѝца</orth>
+                              <gramGrp>
+                                    <gen>ж.</gen>
+                              </gramGrp>
+                        </form>
+                        <sense>
+                              <def>годеница</def>
+                        </sense>
+                  </entry>
+                  <entry xml:id="главеш">
+                        <form type="lemma">
+                              <orth>главѐш</orth>
+                              <gramGrp>
+                                    <gen>м.</gen>
+                              </gramGrp>
+                        </form>
+                        <sense>
+                              <def>годеж</def>
+                        </sense>
+                  </entry>
+                  <entry xml:id="главница">
+                        <form type="lemma">
+                              <orth>гла̀вница</orth>
+                              <gramGrp>
+                                    <gen>ж.</gen>
+                              </gramGrp>
+                        </form>
+                        <sense>
+                              <def>възглавница, от домашно тъкана материя, напълнена с бельото на булката, която се подхвърля по време на сватбата</def>
+                        </sense>
+                  </entry>
+                  <entry xml:id="гледам">
+                        <form type="lemma">
+                              <orth>глѐдам</orth>
+                              <gramGrp>
+                                    <subc>несв.</subc>
+                              </gramGrp>
+                        </form>
+                        <sense n="1">
+                              <def>насочвам очите си към нещо, за да го видя</def>
+                        </sense>
+                        <sense n="2">
+                              <def>мисля, смятам, имам отношение към нещо</def>
+                              <cit type="example">
+                                    <quote>Как ти глѐдаш да са сре̂̀шнем на шес часо̀ф?</quote>
+                              </cit>
+                        </sense>
+                  </entry>
+                  <entry xml:id="глинджасан">
+                        <form type="lemma">
+                              <orth>глинджа̀сан</orth>
+                              <pron>глин-џа̀сан</pron>
+                              <gramGrp>
+                                    <pos>прич.</pos>
+                                    <iType>-а, -о, -и</iType>
+                              </gramGrp>
+                        </form>
+                        <sense>
+                              <def>гурелясали</def>
+                              <cit type="example">
+                                    <quote>Тай чинѝйки глинџа̀сани.</quote>
+                              </cit>
+                              <cit type="example">
+                                    <quote>Вѝш очѝте ти глинџа̀сани.</quote>
+                              </cit>
+                              <xr>Вж. <ref target="#заглинџасани">заглинџа̀сани</ref></xr>
+                        </sense>
+                  </entry>
+                  <entry xml:id="глумаф">
+                        <form type="lemma">
+                              <orth>глу̀маф</orth>
+                              <gramGrp>
+                                    <pos>прил.</pos>
+                                    <iType>-а, -о, -и</iType>
+                              </gramGrp>
+                        </form>
+                        <sense>
+                              <def>глупав</def>
+                        </sense>
+                  </entry>
+                  <entry xml:id="гога">
+                        <form type="lemma">
+                              <orth>го̀га</orth>
+                              <gramGrp>
+                                    <gen>ж.</gen>
+                              </gramGrp>
+                        </form>
+                        <sense>
+                              <def>само в броене за детска игра: Една го̀га, две̂̀ го̀ги, с тай го̀га чѐтри, пѐт</def>
+                        </sense>
+                  </entry>
+                  <entry xml:id="графин">
+                        <form type="lemma">
+                              <orth>графѝн</orth>
+                              <gramGrp>
+                                    <gen>м.</gen>
+                              </gramGrp>
+                        </form>
+                        <sense>
+                              <def>вид шише, гарафа</def>
+                              <cit type="example">
+                                    <quote>Му да̀ват графѝн с вѝно.</quote>
+                              </cit>
+                        </sense>
+                  </entry>
+                  <entry xml:id="гризем-са">
+                        <form type="lemma">
+                              <orth>гризѐм са</orth>
+                              <gramGrp>
+                                    <subc>несв.</subc>
+                                    <subc>възвр.</subc>
+                              </gramGrp>
+                        </form>
+                        <sense>
+                              <def>заяждаме се, спорим</def>
+                              <cit type="example">
+                                    <quote>Ту̀ка сас Са̀шата са гризѐм като ку̀чета.</quote>
+                              </cit>
+                        </sense>
+                  </entry>
+                  <entry xml:id="гробе">
+                        <form type="lemma">
+                              <orth>гро̀бе</orth>
+                              <gramGrp>
+                                    <gen>ср.</gen>
+                              </gramGrp>
+                        </form>
+                        <sense>
+                              <def>гробище</def>
+                              <cit type="example">
+                                    <quote>И къди гро̀бито връвѝ четвѐрт:а у̀лица</quote>
+                              </cit>
+                        </sense>
+                  </entry>
+                  <entry xml:id="грозде">
+                        <form type="lemma">
+                              <orth>гро̀зде</orth>
+                              <gramGrp>
+                                    <gen>ср.</gen>
+                              </gramGrp>
+                        </form>
+                        <sense n="1">
+                              <def>грозде</def>
+                              <cit type="example">
+                                    <quote>К‿ѝдем на гро̀здето.</quote>
+                              </cit>
+                        </sense>
+                        <sense n="2">
+                              <def>лозе</def>
+                        </sense>
+                  </entry>
+                  <entry xml:id="гронка">
+                        <form type="lemma">
+                              <orth>гро̀нка</orth>
+                              <gramGrp>
+                                    <gen>ж.</gen>
+                              </gramGrp>
+                        </form>
+                        <sense>
+                              <def>грозд</def>
+                              <cit type="example">
+                                    <quote>Сѐднах, зѐх идна̀ гро̀нка гро̀зде.</quote>
+                              </cit>
+                        </sense>
+                  </entry>
+                  <entry xml:id="груба">
+                        <form type="lemma">
+                              <orth>гру̀ба</orth>
+                              <pron>γру̀ба</pron>
+                              <gramGrp>
+                                    <pos>прил.</pos>
+                              </gramGrp>
+                        </form>
+                        <sense>
+                              <def>вид зидана печка, с която се отопляват две стаи едновременно, лицевата част на която е в кухнята, където се готви</def>
+                        </sense>
+                  </entry>
+                  <entry xml:id="гръбел">
+                        <form type="lemma">
+                              <orth>гръ̀бел</orth>
+                              <gramGrp>
+                                    <gen>м.</gen>
+                              </gramGrp>
+                        </form>
+                        <sense>
+                              <def>високата част на реда в зеленчуковата градина</def>
+                        </sense>
+                  </entry>
+                  <entry xml:id="гръмеш">
+                        <form type="lemma">
+                              <orth>гръмѐш</orth>
+                              <gramGrp>
+                                    <gen>м.</gen>
+                              </gramGrp>
+                        </form>
+                        <sense>
+                              <def>гръм, гръмотевица</def>
+                              <cit type="example">
+                                    <quote>Па̀да гръмѐш.</quote>
+                              </cit>
+                        </sense>
+                  </entry>
+                  <entry xml:id="гръчлан">
+                        <form type="lemma">
+                              <orth>гръчл’а̀н</orth>
+                              <gramGrp>
+                                    <gen>м.</gen>
+                              </gramGrp>
+                        </form>
+                        <sense>
+                              <def>ду̀тка</def>
+                              <xr type="synonym">= <ref target="#дутка">ду̀тка</ref></xr>
+                        </sense>
+                  </entry>
+                  <entry xml:id="гулема-къшта">
+                        <form type="lemma">
+                              <orth>гуле̂̀ма къ̀шта</orth>
+                              <gramGrp>
+                                    <subc>съч.</subc>
+                              </gramGrp>
+                        </form>
+                        <sense>
+                              <def>голяма стая; зала, салон,</def>
+                              <cit type="example">
+                                    <quote>Имайме гуле̂̀ма къ̀шта. Там са прувѐж даше най-ва̀жните сабѝтийа ф сем’а̀та на бъ̀лгарина.</quote>
+                              </cit>
+                        </sense>
+                  </entry>
+                  <entry xml:id="гулемийа-месец">
+                        <form type="lemma">
+                              <orth>гулѐмийа ме̂̀сец</orth>
+                              <gramGrp>
+                                    <subc>съч.</subc>
+                              </gramGrp>
+                        </form>
+                        <sense>
+                              <def>народ но название на месец януари</def>
+                        </sense>
+                  </entry>
+                  <entry xml:id="гуртом">
+                        <form type="lemma">
+                              <orth>гурто̀м</orth>
+                              <gramGrp>
+                                    <pos>нар.</pos>
+                              </gramGrp>
+                        </form>
+                        <sense>
+                              <def>групом</def>
+                              <cit type="example">
+                                    <quote>Па те са сбѝрайа гурто̀м зна̀чит и тва сѝчко да гу напра̀ват о̀бшто.</quote>
+                              </cit>
+                        </sense>
+                  </entry>
+                  <entry xml:id="густинце">
+                        <form type="lemma">
+                              <orth>густѝнце</orth>
+                              <gramGrp>
+                                    <gen>ср.</gen>
+                              </gramGrp>
+                        </form>
+                        <sense>
+                              <def>нещо сладко или изобщо вкусно, което се носи на деца, на болни</def>
+                        </sense>
+                  </entry>
+                  <entry xml:id="гъглъма">
+                        <form type="lemma">
+                              <orth>гъ̀глъма</orth>
+                              <gramGrp>
+                                    <gen>ж.</gen>
+                              </gramGrp>
+                        </form>
+                        <sense>
+                              <def>В израза: Къде о̀диш? – Ф гъ̀глъмъта? (Така се отговаря най-вече на децата, когато възрастните не искат да кажат къде са ходили или ще отидат), т.е. неизвестно къде</def>
+                              <xr>Вж. <ref target="#трънка">тръ̀нка</ref></xr>
+                        </sense>
+                  </entry>
+                  <entry xml:id="гърлавина">
+                        <form type="lemma">
+                              <orth>гърлавѝна</orth>
+                              <gramGrp>
+                                    <gen>ж.</gen>
+                              </gramGrp>
+                        </form>
+                        <sense>
+                              <def>ду̀тка</def>
+                              <xr type="synonym">= <ref target="#дутка">ду̀тка</ref></xr>
+                        </sense>
+                  </entry>
+                  <entry xml:id="гърне-за-вуда">
+                        <form type="lemma">
+                              <orth>гърнѐ за вуда̀</orth>
+                              <gramGrp>
+                                    <subc>съч.</subc>
+                              </gramGrp>
+                        </form>
+                        <sense>
+                              <def>стомна</def>
+                        </sense>
+                  </entry>
+                  <entry xml:id="гьозан">
+                        <form type="lemma">
+                              <orth>гьо̀зан</orth>
+                              <pron>г’о̀зан</pron>
+                              <gramGrp>
+                                    <gen>м.</gen>
+                              </gramGrp>
+                        </form>
+                        <sense>
+                              <def>раст. джоджен</def>
+                              <cit type="example">
+                                    <quote>Г’о̀зан – с ма̀ленки бѐли цвечѐта; м’а̀та по ру̀ски.</quote>
+                              </cit>
+                        </sense>
+                  </entry>
       </body>
 </text>
 </TEI>
