@@ -1,10 +1,8 @@
-"""Превръща Zotero CSV експорт в js/sources.js за сайта Гласник."""
 import csv, json, os, re, sys
 from collections import Counter
 
 src, out = sys.argv[1], sys.argv[2]
 
-# Допълнителни линкове (tools/extra_links.json), които ги няма в Zotero
 links_file = os.path.join(os.path.dirname(os.path.abspath(__file__)), "extra_links.json")
 extra_links = json.load(open(links_file, encoding="utf-8")) if os.path.exists(links_file) else {}
 rows = list(csv.DictReader(open(src, encoding="utf-8-sig")))
@@ -13,7 +11,7 @@ TYPE = {"book": "Книга", "journalArticle": "Статия", "bookSection": "
 
 def clean(s):
     s = (s or "").strip()
-    s = re.sub(r"(\w)- (\w)", r"\1\2", s)          # „бълга- рите“ → „българите“
+    s = re.sub(r"(\w)- (\w)", r"\1\2", s)
     s = s.replace("филологиче ски факул тет", "филологически факултет")
     s = s.replace("Андрей- чин", "Андрейчин")
     s = re.sub(r"\s+", " ", s)
@@ -23,7 +21,7 @@ def people(s):
     result = []
     for p in (s or "").split(";"):
         name = clean(p)
-        if re.search(r"\s\w$", name):   # „Милев, Никола И“ → „Милев, Никола И.“
+        if re.search(r"\s\w$", name):
             name += "."
         if name:
             result.append(name)
@@ -59,12 +57,10 @@ for r in rows:
         translated = m.group(1).split(". In:")[0].strip()
     abstract = clean(r["Abstract Note"])
     doi, url = r["DOI"].strip(), r["Url"].strip()
-    # Ако резюмето/DOI е копирано от друг запис — не го показваме
     if abstract and abstract_count[r["Abstract Note"]] > 1 and r["Item Type"] != "journalArticle" or (
         abstract and abstract_count[r["Abstract Note"]] > 1 and doi and "for23" in doi and "Чуждоезиково" not in r["Publication Title"]):
         warnings.append(f'{r["Key"]} „{title[:60]}“: резюмето и DOI са копирани от друг запис')
         abstract, doi, url = "", "", ""
-    # Ако DOI-то не работи, го скриваме и показваме линка от extra_links.json
     if r["Key"] in extra_links.get("_hideDoi", []) or any(link.get("replacesDoi") for link in extra_links.get(r["Key"], [])):
         doi = ""
     tags = [clean(t) for t in (r["Manual Tags"] or "").split(";") if clean(t)]
@@ -93,12 +89,10 @@ for r in rows:
         "tags": tags,
         "topic": topic(r, alltext),
         "places": places(alltext),
-        # Издания до 1870 г. са първични извори; останалото е научна литература
         "kind": "Извор" if (year and year <= 1870) else "Изследване",
     }
     sources.append(item)
 
-# Ръчни записи, които още ги няма в Zotero (tools/extra_sources.json)
 extra_file = os.path.join(os.path.dirname(os.path.abspath(__file__)), "extra_sources.json")
 if os.path.exists(extra_file):
     known = {s["title"] for s in sources}
@@ -108,21 +102,7 @@ if os.path.exists(extra_file):
 
 sources.sort(key=lambda s: (s["year"] or 0))
 
-header = """/* =========================================================
-   Гласник — библиография (генерирано от Zotero, група „Glasnik“)
-   ---------------------------------------------------------
-   Този файл е създаден автоматично от CSV експорт на Zotero.
-   За промени: редактирайте записа в Zotero, експортирайте отново
-   и заменете файла. Може и да го редактирате на ръка.
-
-   topic  — „Банат“, „Бесарабия“ или „Българи католици“
-   kind   — „Извор“ (издания до 1870 г.) или „Изследване“
-   places — общности от data.js, с които записът е свързан
-   links  — допълнителни линкове от tools/extra_links.json
-            (full: true = пълен текст в свободен достъп)
-   ========================================================= */
-
-const sources = """
+header = "const sources = "
 open(out, "w", encoding="utf-8").write(header + json.dumps(sources, ensure_ascii=False, indent=2) + ";\n")
 print(len(sources), "записа")
 print(Counter(s["topic"] for s in sources), Counter(s["kind"] for s in sources), Counter(s["type"] for s in sources))

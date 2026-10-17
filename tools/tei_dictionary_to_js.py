@@ -1,12 +1,3 @@
-"""
-Превръща TEI речник (XML) в js/dictionary-data.js за сайта Гласник.
-
-Употреба:
-    python3 tools/tei_dictionary_to_js.py data/ternovka.xml js/dictionary-data.js "Терновка"
-
-Третият аргумент е общността (от js/data.js), към която принадлежи речникът.
-Скриптът чете само TEI и не променя XML файла.
-"""
 import json
 import re
 import sys
@@ -17,7 +8,6 @@ from lxml import etree
 NS = {"t": "http://www.tei-c.org/ns/1.0"}
 XML_ID = "{http://www.w3.org/XML/1998/namespace}id"
 
-# Граматичните съкращения → по-общи етикети за филтъра „Част на речта“
 POS_GROUPS = [
     (r"^(м|ж|ср|мн)\.?$", "съществително"),
     (r"^(несв|св|гл)\.?", "глагол"),
@@ -29,30 +19,21 @@ POS_GROUPS = [
     (r"^обръщ", "обръщение"),
 ]
 
-
-# Временни поправки на заглавни думи (xml:id → дума), ако в XML има грешка.
-# Празно, когато XML е наред.
 HEADWORD_FIXES = {}
 
-
 def text(el):
-    """Целият текст на елемента, с нормализирани интервали."""
     if el is None:
         return ""
     s = "".join(el.itertext())
     return re.sub(r"\s+", " ", s).strip()
 
-
 def first(el, path):
     found = el.xpath(path, namespaces=NS)
     return found[0] if found else None
 
-
 def plain(s):
-    """Без ударения и комбиниращи знаци — за търсене и id."""
     s = unicodedata.normalize("NFD", s)
     return "".join(c for c in s if not unicodedata.combining(c))
-
 
 def gram_labels(entry):
     labels = []
@@ -62,7 +43,6 @@ def gram_labels(entry):
             labels.append(value)
     return labels
 
-
 def pos_group(labels):
     for label in labels:
         for pattern, group in POS_GROUPS:
@@ -70,13 +50,12 @@ def pos_group(labels):
                 return group
     return ""
 
-
 def parse_senses(container):
     senses = []
     for s in container.xpath("./t:sense", namespaces=NS):
         defs = [text(d) for d in s.xpath("./t:def", namespaces=NS)]
         if not defs and not s.xpath("./*", namespaces=NS):
-            defs = [text(s)]  # <sense>текст</sense> без <def>
+            defs = [text(s)]
         senses.append({
             "n": s.get("n", ""),
             "label": " ".join(text(l) for l in s.xpath("./t:lbl | ./t:usg", namespaces=NS)),
@@ -86,7 +65,6 @@ def parse_senses(container):
                    for r in s.xpath("./t:xr/t:ref", namespaces=NS)],
         })
     return senses
-
 
 def parse_entry(entry, place, region):
     lemma = first(entry, "./t:form[@type='lemma'] | ./t:form[1]")
@@ -99,7 +77,6 @@ def parse_entry(entry, place, region):
 
     labels = gram_labels(entry)
 
-    # Значения: директно или в омоними (<hom>)
     homs = entry.xpath("./t:hom", namespaces=NS)
     if homs:
         senses = []
@@ -112,7 +89,6 @@ def parse_entry(entry, place, region):
     else:
         senses = parse_senses(entry)
 
-    # Изрази и подстатии (<entry> вътре в <entry>)
     phrases = []
     for sub in entry.xpath("./t:entry", namespaces=NS):
         forms = [text(f) for f in sub.xpath("./t:form", namespaces=NS)]
@@ -157,7 +133,6 @@ def parse_entry(entry, place, region):
         "tags": [t for t in [group, place] if t],
     }
 
-
 def main(src, out, place, region="Северно Причерноморие"):
     tree = etree.parse(src)
     header = {
@@ -174,24 +149,17 @@ def main(src, out, place, region="Северно Причерноморие"):
     for e in entries:
         for ref in e["xr"] + [r for s in e["senses"] for r in s["xr"]]:
             if ref["target"] not in ids and re.sub(r"\d+$", "", ref["target"]) in ids:
-                ref["target"] = re.sub(r"\d+$", "", ref["target"])  # #бу1 → бу
+                ref["target"] = re.sub(r"\d+$", "", ref["target"])
             ref["exists"] = ref["target"] in ids
             if not ref["exists"]:
                 print("  препратка към липсваща статия:", e["id"], "→", ref["target"])
 
     js = (
-        "/* =========================================================\n"
-        "   Гласник — речник (генерирано автоматично от TEI XML)\n"
-        "   Източник: " + src + "\n"
-        "   Не редактирайте на ръка: променете XML и пуснете отново\n"
-        "   python3 tools/tei_dictionary_to_js.py\n"
-        "   ========================================================= */\n\n"
         "const dictionaryInfo = " + json.dumps(header, ensure_ascii=False, indent=2) + ";\n\n"
         "const dictionary = " + json.dumps(entries, ensure_ascii=False, indent=1) + ";\n"
     )
     open(out, "w", encoding="utf-8").write(js)
     print(len(entries), "речникови статии →", out)
-
 
 if __name__ == "__main__":
     main(*sys.argv[1:])

@@ -1,16 +1,3 @@
-/* =========================================================
-   Гласник — речник
-   ---------------------------------------------------------
-   Данните идват от js/dictionary-data.js, който се генерира
-   от TEI XML с tools/tei_dictionary_to_js.py.
-
-   Търсенето не зависи от ударенията: „абедня“ намира „абѐдня“.
-   dictionary.html?word=абедня → отваря директно статията
-                                (по id, дума или дума без ударения).
-   dictionary.html?q=овца       → попълва търсенето.
-   dictionary.html?place=Терновка → само думите от едно място.
-   ========================================================= */
-
 const wordSearch = document.getElementById("word-search");
 const wordPlace = document.getElementById("word-place");
 const wordPos = document.getElementById("word-pos");
@@ -19,7 +6,6 @@ const entryCard = document.getElementById("entry-card");
 
 let selectedEntry = null;
 
-// Сортиране по азбучен ред без ударенията
 dictionary.sort(function (a, b) {
   return normalize(a.word).localeCompare(normalize(b.word), "bg") || a.id.localeCompare(b.id, "bg");
 });
@@ -27,7 +13,6 @@ dictionary.sort(function (a, b) {
 fillSelect(wordPlace, uniqueValues(dictionary, "place"));
 fillSelect(wordPos, uniqueValues(dictionary.filter(function (d) { return d.posGroup; }), "posGroup"));
 
-// Източник под заглавието
 const sourceLine = document.getElementById("dictionary-source");
 if (sourceLine && typeof dictionaryInfo !== "undefined") {
   sourceLine.innerHTML = sourceHtml();
@@ -42,7 +27,6 @@ function sourceHtml() {
   return html + ".";
 }
 
-// Всички полета, в които търсим
 function searchFields(entry) {
   return [
     entry.word,
@@ -65,9 +49,6 @@ function findEntry(key) {
 function entryLink(entry) {
   return "dictionary.html?word=" + encodeURIComponent(entry.id);
 }
-
-
-/* ---------- Списък ---------- */
 
 function renderWordList() {
   const query = wordSearch.value.trim();
@@ -99,9 +80,6 @@ function renderWordList() {
   return filtered;
 }
 
-
-/* ---------- Речникова статия ---------- */
-
 function refHtml(ref) {
   const target = ref.exists ? findEntry(ref.target) : null;
   const label = escapeHtml(ref.label || ref.target);
@@ -120,7 +98,6 @@ function examplesHtml(examples, query) {
 function sensesHtml(entry, query) {
   if (!entry.senses.length) return "";
 
-  // Омоними (<hom>) — всеки със собствена номерация: I 1. 2.  II …
   const groups = [];
   entry.senses.forEach(function (s) {
     const key = s.hom || 0;
@@ -196,7 +173,6 @@ function showEntry(entry) {
       '<a class="btn btn-outline btn-small" href="texts.html?q=' + encodeURIComponent(normalize(entry.word)) + '">Търси в текстовете</a>' +
     '</div>';
 
-  // Отбелязваме активната дума в списъка
   wordList.querySelectorAll("button[data-id]").forEach(function (button) {
     const isActive = button.dataset.id === entry.id;
     button.classList.toggle("active", isActive);
@@ -207,7 +183,6 @@ function showEntry(entry) {
     }
   });
 
-  // Адресът в браузъра сочи към статията (може да се копира и сподели)
   if (window.history && history.replaceState) {
     history.replaceState(null, "", entryLink(entry));
   }
@@ -216,9 +191,6 @@ function showEntry(entry) {
 function showNoEntry() {
   entryCard.innerHTML = '<p class="muted">Изберете дума от списъка.</p>';
 }
-
-
-/* ---------- Събития ---------- */
 
 function onFilterChange() {
   const filtered = renderWordList();
@@ -243,13 +215,11 @@ wordList.addEventListener("click", function (event) {
   if (!entry) return;
   showEntry(entry);
 
-  // На телефон превъртаме до статията
   if (window.innerWidth < 900) {
     entryCard.scrollIntoView({ behavior: "smooth", block: "start" });
   }
 });
 
-// Препратка „Вж.“ към друга статия
 entryCard.addEventListener("click", function (event) {
   const link = event.target.closest("a.dict-xr[data-id]");
   if (!link) return;
@@ -264,14 +234,10 @@ entryCard.addEventListener("click", function (event) {
   scrollListToActive();
 });
 
-// Превърта само списъка (не цялата страница) до избраната дума
 function scrollListToActive() {
   const active = wordList.querySelector("button.active");
   if (active) wordList.scrollTop = active.parentElement.offsetTop - wordList.clientHeight / 3;
 }
-
-
-/* ---------- Старт ---------- */
 
 const startQuery = getQueryParam("q");
 if (startQuery) wordSearch.value = startQuery;

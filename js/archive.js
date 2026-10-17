@@ -1,18 +1,6 @@
-/* =========================================================
-   Гласник — архив
-   ---------------------------------------------------------
-   Филтрите работят веднага при отметка.
-   Ако в една група няма отметки → не се филтрира по нея.
-   archive.html?id=3 → отваря директно запис 3.
-   archive.html?q=Винга → попълва търсенето.
-   ========================================================= */
-
 const archiveSearch = document.getElementById("archive-search");
 const archiveGrid = document.getElementById("archive-grid");
 const modal = document.getElementById("archive-modal");
-
-
-/* ---------- Списък ---------- */
 
 function renderArchive() {
   const query = archiveSearch.value.trim();
@@ -51,9 +39,6 @@ function renderArchive() {
   }).join("");
 }
 
-
-/* ---------- Модален прозорец ---------- */
-
 let currentItem = null;
 
 function openArchiveItem(id) {
@@ -87,7 +72,6 @@ function openArchiveItem(id) {
     return '<li><a class="tag" href="texts.html?q=' + encodeURIComponent(k) + '">' + escapeHtml(k) + '</a></li>';
   }).join("");
 
-  // Транскрипцията е скрита при всяко ново отваряне
   const transcription = document.getElementById("modal-transcription");
   transcription.hidden = true;
   transcription.textContent = item.transcription;
@@ -96,7 +80,7 @@ function openArchiveItem(id) {
   if (typeof modal.showModal === "function") {
     modal.showModal();
   } else {
-    modal.setAttribute("open", ""); // за много стари браузъри
+    modal.setAttribute("open", "");
   }
 }
 
@@ -107,9 +91,6 @@ function closeModal() {
     modal.removeAttribute("open");
   }
 }
-
-
-/* ---------- Събития ---------- */
 
 archiveSearch.addEventListener("input", renderArchive);
 
@@ -132,7 +113,6 @@ archiveGrid.addEventListener("click", function (event) {
 
 document.getElementById("modal-close").addEventListener("click", closeModal);
 
-// Клик върху тъмния фон затваря прозореца
 modal.addEventListener("click", function (event) {
   if (event.target === modal) closeModal();
 });
@@ -154,9 +134,6 @@ document.getElementById("btn-transcription").addEventListener("click", function 
 document.getElementById("btn-pdf").addEventListener("click", function () {
   alert("Демонстрационен файл.");
 });
-
-
-/* ---------- Старт ---------- */
 
 const startQuery = getQueryParam("q");
 if (startQuery) archiveSearch.value = startQuery;

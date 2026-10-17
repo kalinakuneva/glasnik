@@ -1,17 +1,6 @@
-/* =========================================================
-   Гласник — библиография
-   ---------------------------------------------------------
-   Данните са в js/sources.js (генерирани от Zotero).
-   bibliography.html?q=Брага        → попълва търсенето
-   bibliography.html?topic=Банат    → отмята темата
-   ========================================================= */
-
 const bibSearch = document.getElementById("bib-search");
 const bibSort = document.getElementById("bib-sort");
 const bibList = document.getElementById("bib-list");
-
-
-/* ---------- Обобщение най-горе ---------- */
 
 (function renderStats() {
   const years = sources.map(function (s) { return s.year; }).filter(Boolean);
@@ -31,9 +20,6 @@ const bibList = document.getElementById("bib-list");
   }).join("");
 })();
 
-
-/* ---------- Списък ---------- */
-
 function sortSources(list) {
   const mode = bibSort.value;
   return list.slice().sort(function (a, b) {
@@ -47,7 +33,6 @@ function sortSources(list) {
   });
 }
 
-// Има ли запис пълен текст в свободен достъп
 function isOpenAccess(s) {
   return Boolean(s.url || s.doi) || s.links.some(function (link) { return link.full; });
 }
@@ -65,7 +50,6 @@ function sourceHtml(s, query) {
     ? s.authors.join("; ")
     : (s.editors.length ? s.editors.join("; ") + " (съст.)" : "");
 
-  // Сборник/списание, том, брой, страници
   let where = "";
   if (s.container) {
     where = s.container;
@@ -81,7 +65,6 @@ function sourceHtml(s, query) {
   s.links.forEach(function (link) {
     links.push(linkButton(link.url, link.label));
   });
-  // Ако няма никакъв линк — търсене в световния библиотечен каталог
   if (!hasAnyLink(s)) {
     links.push(linkButton("https://search.worldcat.org/search?q=" + encodeURIComponent(s.title), "Намери в библиотека (WorldCat)"));
   }
@@ -150,9 +133,6 @@ function renderBibliography() {
   }).join("");
 }
 
-
-/* ---------- Копиране на цитат ---------- */
-
 function copyText(text, button) {
   const done = function () {
     const original = button.textContent;
@@ -160,8 +140,6 @@ function copyText(text, button) {
     setTimeout(function () { button.textContent = original; }, 1500);
   };
 
-  // Резервен вариант, ако сайтът е отворен директно от файл
-  // или браузърът не разреши достъп до клипборда
   const fallback = function () {
     const area = document.createElement("textarea");
     area.value = text;
@@ -178,9 +156,6 @@ function copyText(text, button) {
     fallback();
   }
 }
-
-
-/* ---------- Събития ---------- */
 
 bibSearch.addEventListener("input", renderBibliography);
 bibSort.addEventListener("change", renderBibliography);
@@ -211,9 +186,6 @@ bibList.addEventListener("click", function (event) {
   }
 });
 
-
-/* ---------- Старт ---------- */
-
 const startQuery = getQueryParam("q");
 if (startQuery) bibSearch.value = startQuery;
 
@@ -225,7 +197,6 @@ if (startTopic) {
 
 renderBibliography();
 
-// bibliography.html?id=KLUCH → превърта до записа
 const startId = getQueryParam("id");
 if (startId) {
   const target = document.getElementById("src-" + startId);

@@ -1,22 +1,13 @@
-/* =========================================================
-   Гласник — начална страница
-   Иконки в карточките и малката карта-преглед.
-   ========================================================= */
-
-// Иконки в четирите основни карточки
 document.getElementById("icon-history").innerHTML = icons.history;
 document.getElementById("icon-people").innerHTML = icons.people;
 document.getElementById("icon-language").innerHTML = icons.language;
 document.getElementById("icon-archive").innerHTML = icons.archive;
 
-// Иконки в „Избрани материали“
 document.getElementById("ph-letter").insertAdjacentHTML("afterbegin", icons.document);
 document.getElementById("ph-oral").insertAdjacentHTML("afterbegin", icons.language);
 document.getElementById("ph-map").insertAdjacentHTML("afterbegin", icons.map);
 document.getElementById("ph-dict").insertAdjacentHTML("afterbegin", icons.book);
 
-// Малка карта с общностите
-// Ако Leaflet не се зареди (няма интернет), страницата продължава да работи.
 if (typeof L !== "undefined") {
   const previewMap = L.map("preview-map", {
     scrollWheelZoom: false,

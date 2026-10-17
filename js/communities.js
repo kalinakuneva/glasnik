@@ -1,15 +1,5 @@
-/* =========================================================
-   Гласник — общности
-   ---------------------------------------------------------
-   communities.html        → списък с всички общности
-   communities.html?id=6   → детайлен изглед за общност с id 6
-   ========================================================= */
-
 const listView = document.getElementById("list-view");
 const detailView = document.getElementById("detail-view");
-
-
-/* ---------- Списък ---------- */
 
 function renderCommunityList() {
   const query = document.getElementById("community-search").value;
@@ -52,9 +42,6 @@ function renderCommunityList() {
   }).join("");
 }
 
-
-/* ---------- Детайлен изглед ---------- */
-
 function relatedListHtml(items, emptyText) {
   if (items.length === 0) {
     return '<p class="muted small">' + emptyText + '</p>';
@@ -62,8 +49,6 @@ function relatedListHtml(items, emptyText) {
   return '<ul class="related-list">' + items.join("") + '</ul>';
 }
 
-// Литература от библиографията (js/sources.js): първо трудовете
-// за самото място, после — за региона като цяло.
 function literatureHtml(community) {
   if (typeof sources === "undefined") return "";
 
@@ -94,13 +79,11 @@ function literatureHtml(community) {
   return html + '</div>';
 }
 
-// Секция се показва само ако има текст
 function detailSection(title, text) {
   if (!text) return "";
   return '<div class="detail-section"><h2>' + title + '</h2><p>' + escapeHtml(text) + '</p></div>';
 }
 
-// Източници на описанието; ако няма — бележка, че е демонстрационно
 function sourcesHtml(community) {
   if (!community.sources || community.sources.length === 0) {
     return '<p class="note">Описанието на тази общност е демонстрационно и предстои да бъде проверено по източници.</p>';
@@ -188,7 +171,6 @@ function renderCommunityDetail(community) {
       '</div>' +
     '</section>';
 
-  // Малка карта с местоположението
   if (typeof L !== "undefined") {
     const miniMap = L.map("mini-map", { scrollWheelZoom: false })
       .setView([community.latitude, community.longitude], 8);
@@ -210,13 +192,9 @@ function renderNotFound() {
     '</div></section>';
 }
 
-
-/* ---------- Старт ---------- */
-
 const communityId = getQueryParam("id");
 
 if (communityId) {
-  // Детайлен изглед
   const community = communities.find(function (c) {
     return c.id === Number(communityId);
   });
@@ -228,11 +206,9 @@ if (communityId) {
     renderNotFound();
   }
 } else {
-  // Списък
   fillSelect(document.getElementById("community-region"), uniqueValues(communities, "region"));
   fillSelect(document.getElementById("community-country"), uniqueValues(communities, "country"));
 
-  // communities.html?q=Болград → попълва търсенето
   const startQuery = getQueryParam("q");
   if (startQuery) document.getElementById("community-search").value = startQuery;
 

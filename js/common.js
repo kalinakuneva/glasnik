@@ -1,22 +1,8 @@
-/* =========================================================
-   Гласник — общ JavaScript за всички страници
-   ---------------------------------------------------------
-   1. Вмъква еднаквия header и footer във всяка страница
-   2. Маркира активната страница в навигацията
-   3. Мобилно меню и поле за търсене в header-а
-   4. Малки помощни функции (query параметри, търсене, highlight)
-   ========================================================= */
-
-
-/* ---------- Помощни функции ---------- */
-
-// Връща стойността на параметър от адреса, напр. ?id=3 → "3"
 function getQueryParam(name) {
   const params = new URLSearchParams(window.location.search);
   return params.get(name);
 }
 
-// Защитава текста преди да го вмъкнем като HTML
 function escapeHtml(value) {
   return String(value)
     .replace(/&/g, "&amp;")
@@ -26,10 +12,6 @@ function escapeHtml(value) {
     .replace(/'/g, "&#39;");
 }
 
-// Подготвя текст за сравнение при търсене (малки букви, без излишни интервали)
-// Малки букви и без ударения/диакритици: „абѐдня“ → „абедня“
-// (без U+0306, за да остане „й“ различно от „и“).
-// Така търсенето намира диалектните думи и без да се пишат ударенията.
 function normalize(value) {
   return String(value || "")
     .normalize("NFD")
@@ -39,7 +21,6 @@ function normalize(value) {
     .trim();
 }
 
-// Проверява дали някое от полетата съдържа търсения текст
 function matchesQuery(fields, query) {
   const q = normalize(query);
   if (q === "") return true;
@@ -48,14 +29,11 @@ function matchesQuery(fields, query) {
   });
 }
 
-// Огражда намерения текст с <mark>…</mark>.
-// Сравнява без ударения, но маркира оригиналния текст с ударенията.
 function highlight(text, query) {
   const original = String(text || "");
   const q = normalize(query).normalize("NFD");
   if (q === "") return escapeHtml(original);
 
-  // Текст без ударения + позицията на всяка буква в оригинала
   const decomposed = original.normalize("NFD");
   let plain = "";
   const map = [];
@@ -70,7 +48,6 @@ function highlight(text, query) {
   let from = 0;
   let found;
   while (q && (found = plain.indexOf(q, from)) !== -1) {
-    // „мои“ не трябва да маркира половин „й“
     if (plain[found + q.length] === "\u0306") { from = found + 1; continue; }
     const start = map[found];
     const endIndex = found + q.length;
@@ -84,14 +61,12 @@ function highlight(text, query) {
   return result.normalize("NFC");
 }
 
-// Превръща година във век с римски цифри: 1898 → "XIX"
 function centuryOf(year) {
   const number = Math.ceil(parseInt(year, 10) / 100);
   const roman = { 16: "XVI", 17: "XVII", 18: "XVIII", 19: "XIX", 20: "XX", 21: "XXI" };
   return roman[number] || "";
 }
 
-// Връща стойностите на всички отметнати checkbox-ове с даден name
 function getCheckedValues(name) {
   const boxes = document.querySelectorAll('input[name="' + name + '"]:checked');
   return Array.from(boxes).map(function (box) {
@@ -99,14 +74,12 @@ function getCheckedValues(name) {
   });
 }
 
-// Намира общност по име (използва се за координати и връзки)
 function findCommunityByName(name) {
   return communities.find(function (c) {
     return c.name === name;
   });
 }
 
-// Брой материали за дадено място
 function countTextsFor(placeName) {
   return texts.filter(function (t) { return t.place === placeName; }).length;
 }
@@ -115,7 +88,6 @@ function countArchiveFor(placeName) {
   return archiveItems.filter(function (a) { return a.place === placeName; }).length;
 }
 
-// Попълва <select> с уникалните стойности от масив
 function fillSelect(selectElement, values) {
   values.forEach(function (value) {
     const option = document.createElement("option");
@@ -132,10 +104,6 @@ function uniqueValues(list, key) {
   });
 }
 
-
-/* ---------- Библиографско цитиране (за js/sources.js) ---------- */
-
-// "Брага, Татяна" → "Брага, Т."
 function shortName(fullName) {
   const parts = fullName.split(",");
   if (parts.length < 2) return fullName;
@@ -145,8 +113,6 @@ function shortName(fullName) {
   return parts[0].trim() + ", " + initials;
 }
 
-// Връща цитат като обикновен текст:
-// Фамилия, И. (Година). Заглавие. В: Сборник, том(брой), с. 1–10. Място: Издател.
 function formatCitation(source) {
   const isCyrillic = /[а-яА-Я]/.test(source.title);
   let who = source.authors.map(shortName).join(", ");
@@ -170,12 +136,6 @@ function formatCitation(source) {
   return text.trim();
 }
 
-
-/* ---------- Подложка на картите (обща за всички карти) ---------- */
-
-// Основни карти: Esri World Street Map (без API ключ).
-// Ако не се заредят (напр. услугата е недостъпна), след няколко грешки
-// автоматично се превключва на OpenStreetMap.
 function addBaseMap(map) {
   const esri = L.tileLayer(
     "https://server.arcgisonline.com/ArcGIS/rest/services/World_Street_Map/MapServer/tile/{z}/{y}/{x}",
@@ -200,9 +160,6 @@ function addBaseMap(map) {
   esri.addTo(map);
 }
 
-
-/* ---------- Икони (прост inline SVG, без външни библиотеки) ---------- */
-
 const icons = {
   leaf: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 19c0-8 6-14 15-14 0 9-6 15-14 15"/><path d="M5 19l8-8"/></svg>',
   search: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg>',
@@ -218,7 +175,6 @@ const icons = {
   archive: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="5" rx="1"/><path d="M5 9v11h14V9M10 13h4"/></svg>'
 };
 
-// HTML за изображение-заместител (няма външни снимки, които могат да се счупят)
 function placeholderHtml(type, label) {
   const iconByType = {
     "Снимка": icons.photo,
@@ -230,9 +186,6 @@ function placeholderHtml(type, label) {
            '<span class="placeholder-label">' + icon + '<span>' + escapeHtml(type) + '</span></span>' +
          '</div>';
 }
-
-
-/* ---------- Header и footer ---------- */
 
 const navItems = [
   { page: "home",        href: "index.html",       label: "Начало" },
@@ -249,7 +202,6 @@ function renderHeader() {
   const placeholder = document.getElementById("site-header");
   if (!placeholder) return;
 
-  // Коя е текущата страница — записано е в <body data-page="...">
   const currentPage = document.body.dataset.page;
 
   const links = navItems.map(function (item) {
@@ -311,9 +263,6 @@ function renderFooter() {
     '</footer>';
 }
 
-
-/* ---------- Мобилно меню и търсене в header ---------- */
-
 function setupHeaderButtons() {
   const menuButton = document.getElementById("menu-toggle");
   const nav = document.getElementById("main-nav");
@@ -340,16 +289,12 @@ function setupHeaderButtons() {
     });
   }
 
-  // Esc затваря менюто и търсенето
   document.addEventListener("keydown", function (event) {
     if (event.key !== "Escape") return;
     if (nav && nav.classList.contains("open")) menuButton.click();
     if (searchPanel && !searchPanel.hidden) searchButton.click();
   });
 }
-
-
-/* ---------- Старт ---------- */
 
 renderHeader();
 renderFooter();

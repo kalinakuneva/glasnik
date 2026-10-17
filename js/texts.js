@@ -1,10 +1,3 @@
-/* =========================================================
-   Гласник — текстове и корпус
-   ---------------------------------------------------------
-   Търсене в: заглавие, откъс, ключови думи, място.
-   texts.html?q=преселение → търсенето се пуска автоматично.
-   ========================================================= */
-
 const searchField = document.getElementById("text-search");
 const regionSelect = document.getElementById("filter-region");
 const genreSelect = document.getElementById("filter-genre");
@@ -14,11 +7,9 @@ const resultsBox = document.getElementById("text-results");
 
 let activeCategory = "all";
 
-// Попълваме падащите менюта от данните
 fillSelect(regionSelect, uniqueValues(texts, "region"));
 fillSelect(genreSelect, uniqueValues(texts, "type"));
 fillSelect(varietySelect, uniqueValues(texts, "variety"));
-
 
 function renderTexts() {
   const query = searchField.value.trim();
@@ -32,7 +23,6 @@ function renderTexts() {
            (varietySelect.value === "" || t.variety === varietySelect.value);
   });
 
-  // Брояч
   let countText = "Намерени текстове: " + filtered.length;
   if (query !== "") countText += " за „" + query + "“";
   document.getElementById("text-count").textContent = countText;
@@ -74,8 +64,6 @@ function renderTexts() {
   }).join("");
 }
 
-
-// Показва колко съвпадения има и в другите раздели на платформата
 function renderOtherResults(query) {
   const box = document.getElementById("other-results");
   if (query === "") {
@@ -114,15 +102,11 @@ function renderOtherResults(query) {
   box.hidden = false;
 }
 
-
-/* ---------- Събития ---------- */
-
 searchField.addEventListener("input", renderTexts);
 [regionSelect, genreSelect, periodSelect, varietySelect].forEach(function (select) {
   select.addEventListener("change", renderTexts);
 });
 
-// Табове
 document.querySelectorAll(".tab").forEach(function (tab) {
   tab.addEventListener("click", function () {
     document.querySelectorAll(".tab").forEach(function (other) {
@@ -136,7 +120,6 @@ document.querySelectorAll(".tab").forEach(function (tab) {
   });
 });
 
-// Клик върху ключова дума → търсене по нея
 resultsBox.addEventListener("click", function (event) {
   const button = event.target.closest("[data-keyword]");
   if (!button) return;
@@ -145,7 +128,6 @@ resultsBox.addEventListener("click", function (event) {
   searchField.scrollIntoView({ behavior: "smooth", block: "center" });
 });
 
-// Изчистване
 document.getElementById("reset-texts").addEventListener("click", function () {
   searchField.value = "";
   regionSelect.value = "";
@@ -154,9 +136,6 @@ document.getElementById("reset-texts").addEventListener("click", function () {
   varietySelect.value = "";
   document.querySelector('.tab[data-category="all"]').click();
 });
-
-
-/* ---------- Старт: четем ?q= от адреса ---------- */
 
 const params = new URLSearchParams(window.location.search);
 const initialQuery = params.get("q");

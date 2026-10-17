@@ -1,31 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!--
-    Гласник — XSLT за TEI речници
-    =================================================================
-    Превръща TEI речник (entry / form / gramGrp / sense / cit / xr / hom)
-    в чист HTML с класове от css/style.css на Гласник.
-    Без вградени стилове и без излишни span елементи: всеки TEI елемент
-    дава най-много един HTML елемент, а оформлението е в CSS.
-
-    XSLT 1.0 — работи в eXist-db (transform:transform), в браузъра,
-    в xsltproc и в Saxon.
-
-    Параметри:
-      standalone = 'yes'  пълна HTML страница (по подразбиране)
-                   'no'   само <div class="glasnik-dictionary"> за вграждане
-                          в шаблон на eXist (templates/page.html)
-      css        = път до style.css (само при standalone='yes')
-      entry      = xml:id на една статия; празно = всички
-
-    Пример (командна линия):
-      xsltproc xslt/glasnik-dictionary.xsl data/ternovka.xml > речник.html
-      xsltproc (параметър entry=абедня) xslt/glasnik-dictionary.xsl data/ternovka.xml
-
-    Пример (eXist, XQuery):
-      transform:transform(doc("/db/apps/glasnik/data/ternovka.xml"),
-          doc("/db/apps/glasnik/xslt/glasnik-dictionary.xsl"),
-          <parameters><param name="standalone" value="no"/></parameters>)
--->
 <xsl:stylesheet version="1.0"
     xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
     xmlns:tei="http://www.tei-c.org/ns/1.0"
@@ -37,9 +10,6 @@
     <xsl:param name="standalone" select="'yes'"/>
     <xsl:param name="css" select="'../css/style.css'"/>
     <xsl:param name="entry" select="''"/>
-
-
-    <!-- ============ Страница ============ -->
 
     <xsl:template match="/">
         <xsl:choose>
@@ -95,14 +65,9 @@
         </div>
     </xsl:template>
 
-
-    <!-- ============ Статия ============ -->
-
     <xsl:template match="tei:body/tei:entry">
         <article class="card dict-entry" id="{@xml:id}">
-            <!-- заглавна дума и граматика -->
             <xsl:apply-templates select="tei:form[1]" mode="head"/>
-            <!-- варианти -->
             <xsl:if test="tei:form[@type='variant'] | tei:form[1]/tei:form[@type='variant']">
                 <p class="dict-variants">
                     <xsl:text>Варианти: </xsl:text>
@@ -112,12 +77,10 @@
                     </xsl:for-each>
                 </p>
             </xsl:if>
-            <!-- значения: директно или в омоними -->
             <xsl:if test="tei:sense">
                 <xsl:call-template name="senses"/>
             </xsl:if>
             <xsl:apply-templates select="tei:hom"/>
-            <!-- изрази -->
             <xsl:if test="tei:entry">
                 <dl class="dict-phrases">
                     <xsl:apply-templates select="tei:entry"/>
@@ -150,9 +113,6 @@
         <span class="dict-pron">[<xsl:value-of select="normalize-space(.)"/>]</span>
     </xsl:template>
 
-
-    <!-- ============ Значения ============ -->
-
     <xsl:template name="senses">
         <ol>
             <xsl:attribute name="class">
@@ -174,7 +134,6 @@
                     <xsl:apply-templates select="tei:def"/>
                 </xsl:when>
                 <xsl:when test="not(*)">
-                    <!-- <sense>текст</sense> без <def> -->
                     <span class="dict-def"><xsl:value-of select="normalize-space(.)"/></span>
                 </xsl:when>
             </xsl:choose>
@@ -201,9 +160,6 @@
         <li><xsl:value-of select="normalize-space(tei:quote)"/></li>
     </xsl:template>
 
-
-    <!-- ============ Омоними ============ -->
-
     <xsl:template match="tei:hom">
         <section class="dict-hom-block">
             <span class="dict-hom">
@@ -222,9 +178,6 @@
             <xsl:apply-templates select="tei:xr"/>
         </section>
     </xsl:template>
-
-
-    <!-- ============ Изрази (вложени entry) ============ -->
 
     <xsl:template match="tei:entry/tei:entry">
         <dt>
@@ -247,9 +200,6 @@
             </xsl:for-each>
         </dd>
     </xsl:template>
-
-
-    <!-- ============ Препратки и произход ============ -->
 
     <xsl:template match="tei:xr">
         <p class="dict-see">

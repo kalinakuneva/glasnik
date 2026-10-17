@@ -1,24 +1,9 @@
-/* =========================================================
-   Гласник — интерактивна карта (Leaflet)
-   ---------------------------------------------------------
-   1. Създаваме картата
-   2. От данните в data.js правим списък „mapItems“
-      (общности, текстове, архив, речник) — всеки с маркер
-   3. Филтри: регион, тип материал, период
-   4. Търсене по име → flyTo + popup
-   ========================================================= */
-
-
-/* ---------- 1. Картата ---------- */
-
 const map = L.map("map").setView([45.5, 25], 5);
 
 addBaseMap(map);
 
-// Всички видими маркери стоят в тази група — лесно се чистят и пълнят.
 const markerLayer = L.layerGroup().addTo(map);
 
-// Цвят и надпис за всеки тип материал
 const kindSettings = {
   community:  { color: "#2F7D55", label: "Общност", radius: 9 },
   text:       { color: "#2B6CB0", label: "Текст",   radius: 6 },
@@ -26,23 +11,19 @@ const kindSettings = {
   dictionary: { color: "#7B4BA8", label: "Речник",  radius: 6 }
 };
 
-// Малко отместване, за да не се застъпват маркерите на едно място
 const kindOffset = {
   community:  { lat: 0,      lng: 0 },
   text:       { lat: 0.035,  lng: 0.05 },
   archive:    { lat: -0.035, lng: 0.05 },
   dictionary: { lat: 0,      lng: -0.06 }
 };
-const usedOffsets = {}; // брояч „място + тип“ → колко маркера вече има
-
-
-/* ---------- 2. Подготовка на обектите за картата ---------- */
+const usedOffsets = {};
 
 const mapItems = [];
 
 function addMapItem(kind, name, placeName, region, centuries, popupContent, searchText) {
   const community = findCommunityByName(placeName);
-  if (!community) return; // ако мястото го няма в communities, пропускаме
+  if (!community) return;
 
   const key = placeName + "-" + kind;
   const index = usedOffsets[key] || 0;
@@ -82,7 +63,6 @@ function popupButton(href, label, primary) {
   return '<a class="btn btn-small ' + (primary ? 'btn-primary' : 'btn-outline') + '" href="' + href + '">' + label + '</a>';
 }
 
-// Общности
 communities.forEach(function (c) {
   addMapItem("community", c.name, c.name, c.region, c.centuries, popupHtml(
     c.name,
@@ -93,7 +73,6 @@ communities.forEach(function (c) {
   ));
 });
 
-// Текстове
 texts.forEach(function (t) {
   addMapItem("text", t.title, t.place, t.region, [centuryOf(t.year)], popupHtml(
     t.title,
@@ -103,7 +82,6 @@ texts.forEach(function (t) {
   ));
 });
 
-// Архив
 archiveItems.forEach(function (a) {
   addMapItem("archive", a.title, a.place, a.region, [centuryOf(a.year)], popupHtml(
     a.title,
@@ -113,8 +91,6 @@ archiveItems.forEach(function (a) {
   ));
 });
 
-// Речник — по един маркер за всяко населено място (думите нямат период,
-// затова centuries е празен масив и не се скриват от филтъра „Период“)
 const dictionaryByPlace = {};
 dictionary.forEach(function (d) {
   if (!dictionaryByPlace[d.place]) dictionaryByPlace[d.place] = [];
@@ -133,10 +109,6 @@ Object.keys(dictionaryByPlace).forEach(function (place) {
     ), "Речник: " + place + " " + words.map(function (d) { return d.word + " " + d.meaning; }).join(" "));
 });
 
-
-/* ---------- 3. Филтри ---------- */
-
-// Празен списък означава „без ограничение“ — показваме всичко.
 function passesFilter(selectedValues, itemValues) {
   if (selectedValues.length === 0) return true;
   if (itemValues.length === 0) return true;
@@ -182,9 +154,6 @@ function clearFilters() {
 document.getElementById("apply-filters").addEventListener("click", applyFilters);
 document.getElementById("clear-filters").addEventListener("click", clearFilters);
 
-
-/* ---------- 4. Търсене ---------- */
-
 const searchInput = document.getElementById("map-search");
 const resultsList = document.getElementById("map-search-results");
 let currentResults = [];
@@ -196,7 +165,6 @@ function showSearchResults() {
 
   if (normalize(query) === "") return;
 
-  // Първо общностите, после останалите материали
   currentResults = mapItems.filter(function (item) {
     return matchesQuery([item.searchText], query);
   }).slice(0, 8);
@@ -219,7 +187,6 @@ function showSearchResults() {
 }
 
 function goToItem(item) {
-  // Ако маркерът е скрит от филтрите, го показваме
   if (!markerLayer.hasLayer(item.marker)) {
     markerLayer.addLayer(item.marker);
   }
@@ -231,7 +198,6 @@ function goToItem(item) {
 
 searchInput.addEventListener("input", showSearchResults);
 
-// Enter избира първия резултат
 searchInput.addEventListener("keydown", function (event) {
   if (event.key === "Enter" && currentResults.length > 0) {
     event.preventDefault();
@@ -245,12 +211,8 @@ resultsList.addEventListener("click", function (event) {
   goToItem(currentResults[Number(button.dataset.index)]);
 });
 
-
-/* ---------- Старт ---------- */
-
 applyFilters();
 
-// map.html?q=Болград → търси и отваря мястото
 const startQuery = getQueryParam("q");
 if (startQuery) {
   searchInput.value = startQuery;
@@ -258,7 +220,6 @@ if (startQuery) {
   if (currentResults.length > 0) goToItem(currentResults[0]);
 }
 
-// Ако размерът на контейнера се промени (напр. завъртане на телефон)
 window.addEventListener("resize", function () {
   map.invalidateSize();
 });
