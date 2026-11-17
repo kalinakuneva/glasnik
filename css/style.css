@@ -526,6 +526,24 @@ button.tag:hover {
   text-decoration: underline;
 }
 
+.footer-funding {
+  margin-top: 24px;
+  padding-top: 16px;
+  border-top: 1px solid var(--border);
+  font-size: 0.9rem;
+  line-height: 1.5;
+  color: var(--text);
+  max-width: 900px;
+}
+
+.footer-funding p {
+  margin: 0 0 8px;
+}
+
+.footer-funding p[lang="en"] {
+  color: var(--text-muted);
+}
+
 .footer-bottom {
   margin-top: 24px;
   padding-top: 16px;

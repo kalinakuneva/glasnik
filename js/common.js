@@ -258,6 +258,10 @@ function renderFooter() {
             '<li><a href="about.html#contacts">Контакти</a></li>' +
           '</ul>' +
         '</div>' +
+        '<div class="footer-funding">' +
+          '<p lang="bg">„Гласник“ се разработва в рамките на проекта „Бесарабски и банатски българи: език, идентичност и културна памет извън националните граници“ (договор № КП-06-М 100/1), финансиран от Фонд „Научни изследвания“ и ръководен от Татяна Брага.</p>' +
+          '<p lang="en">Glasnik is being developed within the project “Bessarabian and Banat Bulgarians: Language, Identity and Cultural Memory beyond National Borders” (contract No. KP-06-M 100/1), funded by the Bulgarian National Science Fund and led by Tatyana Braga.</p>' +
+        '</div>' +
         '<div class="footer-bottom">Демонстрационен прототип за научно представяне.</div>' +
       '</div>' +
     '</footer>';
